@@ -1,0 +1,2575 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Blog: Google I/O ‘24: Introducing Gemini model capabilities for Places API, 3D Maps in the Maps JavaScript API, and open-source React components – Google Maps Platform</title>
+<meta name="description">
+<link href="https://mapsplatform.google.com/resources/blog/google-i-o-24-introducing-gemini-model-capabilities-for-places-api-3d-maps/" rel="canonical">
+<meta content="no-referrer-when-downgrade" name="referrer">
+<meta content="https://mapsplatform.google.com/resources/blog/google-i-o-24-introducing-gemini-model-capabilities-for-places-api-3d-maps/" property="og:url">
+<meta property="og:title">
+<meta property="og:description">
+<meta content="Google Maps Platform" property="og:site_name">
+<meta content="website" property="og:type">
+<meta content="en" property="og:locale">
+<meta content="https://lh3.googleusercontent.com/kK3U5sPYRqp2m_wcCKgRqcicc56z71QE11a6tw6USoquEsGBO4iMnIhiPOvPXmKmnobPcPrloFTb70b6yzj8fEQnduc1RwMZoyo" property="og:image:secure_url">
+<meta content="https://lh3.googleusercontent.com/kK3U5sPYRqp2m_wcCKgRqcicc56z71QE11a6tw6USoquEsGBO4iMnIhiPOvPXmKmnobPcPrloFTb70b6yzj8fEQnduc1RwMZoyo" property="og:image">
+<meta content="summary" name="twitter:card">
+<meta name="twitter:description">
+<meta name="twitter:title">
+<meta content="https://lh3.googleusercontent.com/kK3U5sPYRqp2m_wcCKgRqcicc56z71QE11a6tw6USoquEsGBO4iMnIhiPOvPXmKmnobPcPrloFTb70b6yzj8fEQnduc1RwMZoyo" name="twitter:image">
+<link href="https://mapsplatform.google.com/static/images/favicon.ico" rel="shortcut icon">
+<link href="https://mapsplatform.google.com/static/images/gmp_favicon_512px_2x.png" sizes="180x180" rel="apple-touch-icon-precomposed">
+<link href="https://mapsplatform.google.com/static/images/gmp_favicon_32px_2x.png" sizes="32x32" rel="icon">
+<link href="https://mapsplatform.google.com/static/images/gmp_favicon_16px_2x.png" sizes="16x16" rel="icon">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true">
+<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="true">
+<link rel="preload" href="https://fonts.googleapis.com/css?family=Google+Sans+Display:400,500,600,700|Google+Sans:400,500,600,700|Google+Sans+Text:400,500,600,700|Material+Icons&amp;display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" nonce="s5zmWLfN_svk-wn1IL3rbg">
+<script nonce="s5zmWLfN_svk-wn1IL3rbg">
+function glueCookieNotificationBarLoaded() {
+(function(w, d, s, l, i) {
+w[l] = w[l] || [];
+w[l].push({
+'gtm.start': new Date().getTime(),
+event: 'gtm.js'
+});
+var f = d.getElementsByTagName(s)[0],
+j = d.createElement(s),
+dl = l != 'dataLayer' ? '&l=' + l : '';
+j.async = true;
+j.src =
+'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-WW5SPNH');
+};
+</script>
+<script src="https://www.googleoptimize.com/optimize.js?id=OPT-WH5QHH8" nonce="s5zmWLfN_svk-wn1IL3rbg"></script>
+<script nonce="s5zmWLfN_svk-wn1IL3rbg">
+window.dataLayer = [{
+experimentID: "",
+experimentName: "[]",
+}];
+window.dataLayer.push({
+'optimize.whitelist': {
+'yhajGzd6S4aPT9TkuAkrjg': 'sha256-61b965e84307f1465f18bdfb7209cd9eba6986c600854b1360372e9e85e24e53',
+}
+});
+</script>
+<link rel="stylesheet" href="https://mapsplatform.google.com/assets/EI-dBPWS.css" nonce="s5zmWLfN_svk-wn1IL3rbg">
+<script type="module" src="https://mapsplatform.google.com/assets/-JzsACnw.min.js" nonce="s5zmWLfN_svk-wn1IL3rbg"></script>
+</head>
+<body>
+<script src="https://www.gstatic.com/external_hosted/lottie_player/lottie_player_binary-bundle.js" defer="defer" nonce="s5zmWLfN_svk-wn1IL3rbg"></script>
+<div>
+<div class="main">
+<a href="google-i-o-24-introducing-gemini-model-capabilities-for-places-api-3d-maps.html#main" class="skip-to-content">Skip to content</a>
+<header class="header">
+<div class="header__top">
+<div class="header__container">
+<div class="header__lockup">
+<button class="header__menu-button" tabindex="0" title="Open the navigation&nbsp;drawer" menu-open>
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/menu.svg" width="24" height="24" alt="" role="presentation">
+</button>
+<a class="link" href="../../../mapsplatform_google_default_2.html" aria-label="Google Maps Platform" data-category="globalNav" data-action="linkClick" data-label="navGMPHome">
+<img loading="lazy" src="https://fonts.gstatic.com/s/i/productlogos/maps/v7/192px.svg" width="36" height="36" alt="" role="presentation">
+<span class="link__label"><span>Google</span> Maps Platform</span>
+</a>
+</div>
+<div class="header__nav header__nav--desktop">
+<div class="header__nav__item">
+<a class="link" href="https://mapsplatform.google.com/why-google/" data-category="globalNav" data-action="linkClick" data-label="navWhyGoogle"><span class="link__label">Why Google</span>
+</a>
+</div>
+<details class="header__nav__item header__nav__item--has-subnav">
+<summary opens-subnav="products" tabindex="0" role="button">
+Products
+</summary>
+<details-dialog>
+<div class="header__nav__subnav header__nav__subnav--columns" subnav-id="products">
+<div class="header__nav__subnav__meta">
+<div class="header__nav__subnav__meta__content">
+<button class="header__nav__subnav__back-button" tabindex="0" title="Go back" closes-subnav="products">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/menu-arrow.svg" width="16" height="16" alt="" role="presentation">
+</button>
+<div class="header__nav__subnav__title">
+Products
+</div>
+<div class="header__nav__subnav__body">
+Discover the APIs and SDKs available to create tailored maps for your&nbsp;business.
+</div>
+</div>
+<div class="header__nav__subnav__meta__cta">
+<div class="header__nav__subnav__button laptop-desktop-only">
+<a class="button laptop-desktop-only button--medium" href="../../../maps-products/maps-products_2.html" data-category="globalNav" data-action="buttonClick" data-label="productsTabSeeAllProducts">
+See all products
+</a>
+</div>
+<div class="header__nav__subnav__button mobile-tablet-only">
+<a class="button mobile-tablet-only button--medium" href="../../../maps-products/maps-products_2.html" data-category="globalNav" data-action="buttonClick" data-label="productsTabSeeAllProducts">
+All products
+</a>
+</div>
+</div>
+</div>
+<div class="header__nav__subnav__links-wrap">
+<div class="header__nav__subnav__links">
+<div class="header__nav__subnav__items__group">
+<div class="header__nav__subnav__items__group__icon">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Products_Supernav_Icon_01-Maps.svg" width="34" height="32" alt="" role="presentation">
+</div>
+<div class="header__nav__subnav__items__group__title">
+Maps
+</div>
+<div class="header__nav__subnav__items">
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/aerial-view/" data-category="globalNav" data-action="linkClick" data-label="productsTabAerialView"><span class="link__label">Aerial View</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/aerial-view/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickAerialViewAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/dynamic-maps/" data-category="globalNav" data-action="linkClick" data-label="productsTabDynamicMaps"><span class="link__label">Dynamic Maps</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/javascript/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDynamicMapsJS"><span class="link__label">JS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/android-sdk/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDynamicMapsAndroid"><span class="link__label">Android</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/ios-sdk/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDynamicMapsiOS"><span class="link__label">iOS</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#dynamic-street-view" data-category="globalNav" data-action="linkClick" data-label="productsTabDynamicStreetView"><span class="link__label">Dynamic Street View</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/javascript/streetview" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDynamicStreetViewJS"><span class="link__label">JS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/android-sdk/streetview" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDynamicStreetViewAndroid"><span class="link__label">Android</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/ios-sdk/streetview" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDynamicStreetViewiOS"><span class="link__label">iOS</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#elevation" data-category="globalNav" data-action="linkClick" data-label="productsTabElevation"><span class="link__label">Elevation</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/elevation/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickElevationAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/map-tiles/" data-category="globalNav" data-action="linkClick" data-label="productsTabMapTiles"><span class="link__label">Map Tiles</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/tile" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickMapTilesAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#maps-datasets" data-category="globalNav" data-action="linkClick" data-label="productsTabMapsDatasets"><span class="link__label">Maps Datasets</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/datasets" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickMapsDatasetsAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#embed" data-category="globalNav" data-action="linkClick" data-label="productsTabEmbed"><span class="link__label">Maps Embed</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/embed/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickEmbedAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#static-maps" data-category="globalNav" data-action="linkClick" data-label="productsTabStaticMaps"><span class="link__label">Static Maps</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/maps-static/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickStaticMapsAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#static-street-view" data-category="globalNav" data-action="linkClick" data-label="productsTabStaticStreetView"><span class="link__label">Static Street View</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/streetview/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickStaticStreetViewAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="header__nav__subnav__items__group">
+<div class="header__nav__subnav__items__group__icon">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Products_Supernav_Icon_02-Routes.svg" width="32" height="32" alt="" role="presentation">
+</div>
+<div class="header__nav__subnav__items__group__title">
+Routes
+</div>
+<div class="header__nav__subnav__items">
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/routes/" data-category="globalNav" data-action="linkClick" data-label="productsTabComputeRoutes"><span class="link__label">Compute Routes</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/routes" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickComputeRoutesAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/routes/" data-category="globalNav" data-action="linkClick" data-label="productsTabComputeRoutesMatrix"><span class="link__label">Compute Routes Matrix</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/routes" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickComputeRoutesMatrixAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#directions" data-category="globalNav" data-action="linkClick" data-label="productsTabDirections"><span class="link__label">Directions</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/javascript/directions" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDirectionsJS"><span class="link__label">JS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/directions/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDirectionsAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#distance-matrix" data-category="globalNav" data-action="linkClick" data-label="productsTabDistanceMatrix"><span class="link__label">Distance Matrix</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/javascript/distancematrix" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDistanceMatrixJS"><span class="link__label">JS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/distance-matrix/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDistanceMatrixAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/navigation-sdk/" data-category="globalNav" data-action="linkClick" data-label="productsTabNavigationSDK"><span class="link__label">Navigation SDK</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/navigation/android-sdk" target="_blank" data-category="globalNav" data-action="linkClick" data-label="docClickNavigationSDKAndroid"><span class="link__label">Android</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/navigation/ios-sdk" target="_blank" data-category="globalNav" data-action="linkClick" data-label="docClickNavigationSDKiOS"><span class="link__label">iOS</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#roads" data-category="globalNav" data-action="linkClick" data-label="productsTabRoads"><span class="link__label">Roads</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/roads/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickRoadsAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#route-opt" data-category="globalNav" data-action="linkClick" data-label="productsTabRouteOptimization"><span class="link__label">Route Optimization</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/route-optimization" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickRouteOptimizationAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="header__nav__subnav__items__group">
+<div class="header__nav__subnav__items__group__icon">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Products_Supernav_Icon_03-Places.svg" width="23" height="33" alt="" role="presentation">
+</div>
+<div class="header__nav__subnav__items__group__title">
+Places
+</div>
+<div class="header__nav__subnav__items">
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/address-validation/" data-category="globalNav" data-action="linkClick" data-label="productsTabAddressValidation"><span class="link__label">Address Validation</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/address-validation" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickAddressValidationAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/places/" data-category="globalNav" data-action="linkClick" data-label="productsTabAutocomplete"><span class="link__label">Autocomplete</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/places/web-service/autocomplete" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickAutocompleteAPI"><span class="link__label">API</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/javascript/place-autocomplete-data" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickAutocompleteJS"><span class="link__label">JS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/places/android-sdk/place-autocomplete" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickAutocompleteAndroid"><span class="link__label">Android</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/places/ios-sdk/place-autocomplete" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickAutocompleteiOS"><span class="link__label">iOS</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#geocoding" data-category="globalNav" data-action="linkClick" data-label="productsTabGeocoding"><span class="link__label">Geocoding</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/javascript/geocoding" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickGeocodingJS"><span class="link__label">JS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/geocoding/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickGeocodingAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#geolocation" data-category="globalNav" data-action="linkClick" data-label="productsTabGeolocation"><span class="link__label">Geolocation</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/geolocation/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickGeolocationAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/places/" data-category="globalNav" data-action="linkClick" data-label="productsTabNearbySearch"><span class="link__label">Nearby Search</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/javascript/nearby-search" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickNearbySearchJS"><span class="link__label">JS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/places/web-service/nearby-search" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickNearbySearchAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/places/" data-category="globalNav" data-action="linkClick" data-label="productsTabPlacesDetails"><span class="link__label">Place Details</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/javascript/place-details" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickPlacesDetailsJS"><span class="link__label">JS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/places/android-sdk/place-details" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickPlacesDetailsAndroid"><span class="link__label">Android</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/places/ios-sdk/place-details" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickPlacesDetailsiOS"><span class="link__label">iOS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/places/web-service/place-details" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickPlacesDetailsAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/places/" data-category="globalNav" data-action="linkClick" data-label="productsTabPlacesPhotos"><span class="link__label">Place Photos</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/places/android-sdk/photos" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickPlacesPhotosAndroid"><span class="link__label">Android</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/places/ios-sdk/photos" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickPlacesPhotosiOS"><span class="link__label">iOS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/places/web-service/place-photos" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickPlacesPhotosAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/places/" data-category="globalNav" data-action="linkClick" data-label="productsTabTextSearch"><span class="link__label">Text Search</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/javascript/place-search" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickTextSearchJS"><span class="link__label">JS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/places/web-service/text-search" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickTextSearchAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#time-zone" data-category="globalNav" data-action="linkClick" data-label="productsTabTimeZone"><span class="link__label">Time Zone</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/timezone/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickTimeZoneAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="header__nav__subnav__items__group">
+<div class="header__nav__subnav__items__group__icon">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Products_Supernav_Icon_04-Environment.svg" width="23" height="33" alt="" role="presentation">
+</div>
+<div class="header__nav__subnav__items__group__title">
+Environment
+</div>
+<div class="header__nav__subnav__items">
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/air-quality/" data-category="globalNav" data-action="linkClick" data-label="productsTabAirQuality"><span class="link__label">Air Quality</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/air-quality" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickAirQualityAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/pollen/" data-category="globalNav" data-action="linkClick" data-label="productsTabPollen"><span class="link__label">Pollen</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/pollen" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickPollenAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/solar/" data-category="globalNav" data-action="linkClick" data-label="productsTabSolar"><span class="link__label">Solar</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/solar" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickSolarAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details-dialog>
+</details>
+<details class="header__nav__item header__nav__item--mobile-subnav-disabled header__nav__item--has-subnav">
+<summary opens-subnav="solutions" tabindex="0" role="button">
+Solutions
+</summary>
+<details-dialog>
+<div class="header__nav__subnav header__nav__subnav--rows" subnav-id="solutions">
+<div class="header__nav__subnav__meta">
+<div class="header__nav__subnav__meta__content">
+<button class="header__nav__subnav__back-button" tabindex="0" title="Go back" closes-subnav="solutions">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/menu-arrow.svg" width="16" height="16" alt="" role="presentation">
+</button>
+<div class="header__nav__subnav__title">
+Solutions
+</div>
+<div class="header__nav__subnav__body">
+Find the right combination of products for what you’re looking to&nbsp;achieve.
+</div>
+<div class="header__nav__subnav__blurb">
+Wondering where to&nbsp;start?
+</div>
+</div>
+<div class="header__nav__subnav__meta__cta">
+<div class="header__nav__subnav__button header__nav__subnav__button--alt-margin">
+<a class="button button--medium" href="https://mapsplatform.google.com/resources/solution-finder/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabSolutionFinder">
+Find your solution
+</a>
+</div>
+</div>
+</div>
+<div class="header__nav__subnav__links-wrap">
+<div class="header__nav__subnav__links">
+<div class="header__nav__subnav__items__group">
+<div class="header__nav__subnav__items__group__title">
+By industry
+</div>
+<div class="header__nav__subnav__items">
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/retail/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabRetail">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_Industry-Icon_01-Retail.svg" width="27" height="27" alt="" role="presentation">
+<span class="link__label">Retail</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/transportation-and-logistics/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabTransLog">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_Industry-Icon_02-TransLogistics.svg" width="35" height="25" alt="" role="presentation">
+<span class="link__label">Transportation & Logistics</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/financial-services/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabFinServ">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_Industry-Icon_03-FinServ.svg" width="27" height="28" alt="" role="presentation">
+<span class="link__label">Financial Services</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/real-estate/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabRealEstate">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_Industry-Icon_04-RealEstate.svg" width="27" height="28" alt="" role="presentation">
+<span class="link__label">Real Estate</span>
+</a>
+</div>
+</div>
+</div>
+<div class="header__nav__subnav__items__group">
+<div class="header__nav__subnav__items__group__title">
+By use case
+</div>
+<div class="header__nav__subnav__items">
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/display-the-ideal-location/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabFindIdealLocation">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_01-FindLocation.svg" width="25" height="26" alt="" role="presentation">
+<span class="link__label">Display the Ideal Location</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/visualize-data/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabVisualGeo">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_02-VisGeospatialData.svg" width="26" height="27" alt="" role="presentation">
+<span class="link__label">Visualize Geospatial Data</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/provide-local-information/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabProvideLocalInfo">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_03-ProvideLocalInfo.svg" width="22" height="29" alt="" role="presentation">
+<span class="link__label">Provide Local Information</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/enable-asset-tracking/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabEnableAssestTrack">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_04-EnableAssetTracking.svg" width="30" height="32" alt="" role="presentation">
+<span class="link__label">Enable Asset Tracking</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/offer-efficient-routes/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabEfficientRoutes">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_05-OfferEfficientRoutes.svg" width="26" height="27" alt="" role="presentation">
+<span class="link__label">Offer Efficient Routes</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/build-immersive-experiences/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabBuildImmersive">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_06-BuildInteractiveExp.svg" width="25" height="24" alt="" role="presentation">
+<span class="link__label">Build Immersive Experiences</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/improve-addresses/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabAddressEntry">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_07-SimplifyAddressEntry.svg" width="22" height="29" alt="" role="presentation">
+<span class="link__label">Improve Addresses</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/enrich-transactions/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabEnrichTrans">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_08-EnrichTransactions.svg" width="34" height="23" alt="" role="presentation">
+<span class="link__label">Enrich Transactions</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details-dialog>
+</details>
+<details class="header__nav__item header__nav__item--only-mobile header__nav__item--has-subnav">
+<summary opens-subnav="by-industry" tabindex="0" role="button">
+By industry
+</summary>
+<details-dialog>
+<div class="header__nav__subnav header__nav__subnav--rows" subnav-id="by-industry">
+<div class="header__nav__subnav__meta">
+<div class="header__nav__subnav__meta__content">
+<button class="header__nav__subnav__back-button" tabindex="0" title="Go back" closes-subnav="by-industry">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/menu-arrow.svg" width="16" height="16" alt="" role="presentation">
+</button>
+<div class="header__nav__subnav__title">
+Solutions By&nbsp;Industry
+</div>
+<div class="header__nav__subnav__body">
+</div>
+</div>
+<div class="header__nav__subnav__meta__cta">
+</div>
+</div>
+<div class="header__nav__subnav__links-wrap">
+<div class="header__nav__subnav__links">
+<div class="header__nav__subnav__items">
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/retail/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabRetail">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_Industry-Icon_01-Retail.svg" width="27" height="27" alt="" role="presentation">
+<span class="link__label">Retail</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/transportation-and-logistics/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabTransLog">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_Industry-Icon_02-TransLogistics.svg" width="35" height="25" alt="" role="presentation">
+<span class="link__label">Transportation & Logistics</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/financial-services/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabFinServ">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_Industry-Icon_03-FinServ.svg" width="27" height="28" alt="" role="presentation">
+<span class="link__label">Financial Services</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/real-estate/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabRealEstate">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_Industry-Icon_04-RealEstate.svg" width="27" height="28" alt="" role="presentation">
+<span class="link__label">Real Estate</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details-dialog>
+</details>
+<details class="header__nav__item header__nav__item--only-mobile header__nav__item--has-subnav">
+<summary opens-subnav="by-use-case" tabindex="0" role="button">
+By use case
+</summary>
+<details-dialog>
+<div class="header__nav__subnav header__nav__subnav--rows" subnav-id="by-use-case">
+<div class="header__nav__subnav__meta">
+<div class="header__nav__subnav__meta__content">
+<button class="header__nav__subnav__back-button" tabindex="0" title="Go back" closes-subnav="by-use-case">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/menu-arrow.svg" width="16" height="16" alt="" role="presentation">
+</button>
+<div class="header__nav__subnav__title">
+By use case
+</div>
+<div class="header__nav__subnav__body">
+</div>
+</div>
+<div class="header__nav__subnav__meta__cta">
+</div>
+</div>
+<div class="header__nav__subnav__links-wrap">
+<div class="header__nav__subnav__links">
+<div class="header__nav__subnav__items">
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/display-the-ideal-location/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabFindIdealLocation">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_01-FindLocation.svg" width="25" height="26" alt="" role="presentation">
+<span class="link__label">Display the Ideal Location</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/visualize-data/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabVisualGeo">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_02-VisGeospatialData.svg" width="26" height="27" alt="" role="presentation">
+<span class="link__label">Visualize Geospatial Data</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/provide-local-information/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabProvideLocalInfo">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_03-ProvideLocalInfo.svg" width="22" height="29" alt="" role="presentation">
+<span class="link__label">Provide Local Information</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/enable-asset-tracking/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabEnableAssestTrack">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_04-EnableAssetTracking.svg" width="30" height="32" alt="" role="presentation">
+<span class="link__label">Enable Asset Tracking</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/offer-efficient-routes/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabEfficientRoutes">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_05-OfferEfficientRoutes.svg" width="26" height="27" alt="" role="presentation">
+<span class="link__label">Offer Efficient Routes</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/build-immersive-experiences/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabBuildImmersive">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_06-BuildInteractiveExp.svg" width="25" height="24" alt="" role="presentation">
+<span class="link__label">Build Immersive Experiences</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/improve-addresses/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabAddressEntry">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_07-SimplifyAddressEntry.svg" width="22" height="29" alt="" role="presentation">
+<span class="link__label">Improve Addresses</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/enrich-transactions/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabEnrichTrans">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_08-EnrichTransactions.svg" width="34" height="23" alt="" role="presentation">
+<span class="link__label">Enrich Transactions</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details-dialog>
+</details>
+<div class="header__nav__item">
+<a class="link" href="../../../../developers.google.com/maps/pricing.html" data-category="globalNav" data-action="linkClick" data-label="navPricing"><span class="link__label">Pricing</span>
+</a>
+</div>
+<details class="header__nav__item header__nav__item--has-subnav">
+<summary opens-subnav="resources" tabindex="0" role="button">
+Resources
+</summary>
+<details-dialog>
+<div class="header__nav__subnav header__nav__subnav--rows" subnav-id="resources">
+<div class="header__nav__subnav__meta">
+<div class="header__nav__subnav__meta__content">
+<button class="header__nav__subnav__back-button" tabindex="0" title="Go back" closes-subnav="resources">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/menu-arrow.svg" width="16" height="16" alt="" role="presentation">
+</button>
+<div class="header__nav__subnav__title">
+Resources
+</div>
+<div class="header__nav__subnav__body">
+Check out more info to help you get to know Google Maps Platform&nbsp;better.
+</div>
+</div>
+<div class="header__nav__subnav__meta__cta">
+</div>
+</div>
+<div class="header__nav__subnav__links-wrap">
+<div class="header__nav__subnav__links">
+<div class="header__nav__subnav__items">
+<div class="header__nav__subnav__item">
+<a class="link link--external" href="https://developers.google.com/maps/documentation" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="resourcesTabDocumentation">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Resources_Supernav_Icon_00-Documentation.svg" width="30" height="30" alt="" role="presentation">
+<span class="link__label">Documentation</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/resources/solution-finder/" aria-label="Click to visit the Solution Finder page" data-category="globalNav" data-action="linkClick" data-label="resourcesTabSolutionFinder">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_Icon_SolutionsFinder.svg" width="30" height="30" alt="" role="presentation">
+<span class="link__label">Solution Finder</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/resources/demo-gallery/" data-category="globalNav" data-action="linkClick" data-label="resourcesTabCustomizationGallery">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Resources_Supernav_Icon_00-Customization-Gallery.svg" width="30" height="30" alt="" role="presentation">
+<span class="link__label">Demo Gallery</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/resources/quick-builder/" data-category="globalNav" data-action="linkClick" data-label="resourcesTabQuickBuilder">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Resources_Supernav_Icon_06-QuickBuilder.svg" width="30" height="30" alt="" role="presentation">
+<span class="link__label">Quick Builder</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="../../blog_2.html" data-category="globalNav" data-action="linkClick" data-label="resourcesTabBlog">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Resources_Supernav_Icon_02-Blog.svg" width="30" height="30" alt="" role="presentation">
+<span class="link__label">Blog</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/resources/customer-stories/" data-category="globalNav" data-action="linkClick" data-label="resourcesTabCustomerStories">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Resources_Supernav_Icon_01-Customer-Stories.svg" width="32" height="27" alt="" role="presentation">
+<span class="link__label">Customer Stories</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--external" href="https://cloud.google.com/find-a-partner/?products=Google%20Maps%20Platform" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="resourcesTabPartnerDirectory">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Resources_Supernav_Icon_01-Partner-Directory.svg" width="32" height="30" alt="" role="presentation">
+<span class="link__label">Partner Directory</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/resources/impact-calculator/" data-category="globalNav" data-action="linkClick" data-label="resourcesImpactCalculator">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Resources_Supernav_Icon_07-ImpactCalculator.svg" width="32" height="30" alt="" role="presentation">
+<span class="link__label">Impact Calculator</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--external" href="https://mapsonair.withgoogle.com/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="resourcesTabWebinars">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Resources_Supernav_Icon_04-Webinars.svg" width="32" height="25" alt="" role="presentation">
+<span class="link__label">Webinars</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/resources/whitepapers/" data-category="globalNav" data-action="linkClick" data-label="resourcesTabWhitepapers">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/Nav_Resources_Supernav_Icon_08-whitepapers.svg" width="24" height="27" alt="" role="presentation">
+<span class="link__label">Whitepapers</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="../../trust-center_2.html" data-category="globalNav" data-action="linkClick" data-label="resourcesTrustCenter">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/Nav_Resources_Supernav_Icon_09-trust-center.svg" width="24" height="27" alt="" role="presentation">
+<span class="link__label">Trust Center</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--external" href="https://developers.google.com/maps/architecture" aria-label="Discover use cases and architectures to help build apps with Google Maps Platform." target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="resourcesTabArchitectureCenter">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/Nav_Resources_Supernav_Icon_10-architecture-center.svg" width="24" height="27" alt="" role="presentation">
+<span class="link__label">Architecture Center</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/women-techmakers/" data-category="globalNav" data-action="linkClick" data-label="resourcesTabWomenTechmakers">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/Nav_Resources_Supernav_Icon_11-women-techmakers.svg" width="24" height="27" alt="" role="presentation">
+<span class="link__label">Women Techmakers</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details-dialog>
+</details>
+</div>
+<div class="header__aside">
+<div class="header__aside__buttons header__aside__buttons--group2">
+<div class="header__aside__button">
+<a class="button button--medium" href="../../../../cloud.google.com/contact-maps/contact-us.html" data-append-utm data-category="globalNav" data-action="mapsCta" data-label="contactSalesMaps">
+Contact sales
+</a>
+</div>
+<div class="header__aside__button">
+<a class="button" href="https://console.cloud.google.com/google/maps-apis/start?ref=https://mapsplatform.google.com" target="_blank" rel="noopener" aria-label="Visit cloud console to get started" data-append-utm data-category="globalNav" data-action="mapsCta" data-label="getStartedNav">
+Get started
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="header__bottom">
+<div class="header__container">
+<div class="header__nav">
+<div class="header__nav__item">
+<a class="link" href="https://mapsplatform.google.com/why-google/" data-category="globalNav" data-action="linkClick" data-label="navWhyGoogle"><span class="link__label">Why Google</span>
+</a>
+</div>
+<details class="header__nav__item header__nav__item--has-subnav">
+<summary opens-subnav="products" tabindex="0" role="button">
+Products
+</summary>
+<details-dialog>
+<div class="header__nav__subnav header__nav__subnav--columns" subnav-id="products">
+<div class="header__nav__subnav__meta">
+<div class="header__nav__subnav__meta__content">
+<button class="header__nav__subnav__back-button" tabindex="0" title="Go back" closes-subnav="products">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/menu-arrow.svg" width="16" height="16" alt="" role="presentation">
+</button>
+<div class="header__nav__subnav__title">
+Products
+</div>
+<div class="header__nav__subnav__body">
+Discover the APIs and SDKs available to create tailored maps for your&nbsp;business.
+</div>
+</div>
+<div class="header__nav__subnav__meta__cta">
+<div class="header__nav__subnav__button laptop-desktop-only">
+<a class="button laptop-desktop-only button--medium" href="../../../maps-products/maps-products_2.html" data-category="globalNav" data-action="buttonClick" data-label="productsTabSeeAllProducts">
+See all products
+</a>
+</div>
+<div class="header__nav__subnav__button mobile-tablet-only">
+<a class="button mobile-tablet-only button--medium" href="../../../maps-products/maps-products_2.html" data-category="globalNav" data-action="buttonClick" data-label="productsTabSeeAllProducts">
+All products
+</a>
+</div>
+</div>
+</div>
+<div class="header__nav__subnav__links-wrap">
+<div class="header__nav__subnav__links">
+<div class="header__nav__subnav__items__group">
+<div class="header__nav__subnav__items__group__icon">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Products_Supernav_Icon_01-Maps.svg" width="34" height="32" alt="" role="presentation">
+</div>
+<div class="header__nav__subnav__items__group__title">
+Maps
+</div>
+<div class="header__nav__subnav__items">
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/aerial-view/" data-category="globalNav" data-action="linkClick" data-label="productsTabAerialView"><span class="link__label">Aerial View</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/aerial-view/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickAerialViewAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/dynamic-maps/" data-category="globalNav" data-action="linkClick" data-label="productsTabDynamicMaps"><span class="link__label">Dynamic Maps</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/javascript/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDynamicMapsJS"><span class="link__label">JS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/android-sdk/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDynamicMapsAndroid"><span class="link__label">Android</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/ios-sdk/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDynamicMapsiOS"><span class="link__label">iOS</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#dynamic-street-view" data-category="globalNav" data-action="linkClick" data-label="productsTabDynamicStreetView"><span class="link__label">Dynamic Street View</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/javascript/streetview" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDynamicStreetViewJS"><span class="link__label">JS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/android-sdk/streetview" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDynamicStreetViewAndroid"><span class="link__label">Android</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/ios-sdk/streetview" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDynamicStreetViewiOS"><span class="link__label">iOS</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#elevation" data-category="globalNav" data-action="linkClick" data-label="productsTabElevation"><span class="link__label">Elevation</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/elevation/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickElevationAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/map-tiles/" data-category="globalNav" data-action="linkClick" data-label="productsTabMapTiles"><span class="link__label">Map Tiles</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/tile" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickMapTilesAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#maps-datasets" data-category="globalNav" data-action="linkClick" data-label="productsTabMapsDatasets"><span class="link__label">Maps Datasets</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/datasets" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickMapsDatasetsAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#embed" data-category="globalNav" data-action="linkClick" data-label="productsTabEmbed"><span class="link__label">Maps Embed</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/embed/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickEmbedAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#static-maps" data-category="globalNav" data-action="linkClick" data-label="productsTabStaticMaps"><span class="link__label">Static Maps</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/maps-static/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickStaticMapsAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#static-street-view" data-category="globalNav" data-action="linkClick" data-label="productsTabStaticStreetView"><span class="link__label">Static Street View</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/streetview/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickStaticStreetViewAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="header__nav__subnav__items__group">
+<div class="header__nav__subnav__items__group__icon">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Products_Supernav_Icon_02-Routes.svg" width="32" height="32" alt="" role="presentation">
+</div>
+<div class="header__nav__subnav__items__group__title">
+Routes
+</div>
+<div class="header__nav__subnav__items">
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/routes/" data-category="globalNav" data-action="linkClick" data-label="productsTabComputeRoutes"><span class="link__label">Compute Routes</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/routes" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickComputeRoutesAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/routes/" data-category="globalNav" data-action="linkClick" data-label="productsTabComputeRoutesMatrix"><span class="link__label">Compute Routes Matrix</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/routes" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickComputeRoutesMatrixAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#directions" data-category="globalNav" data-action="linkClick" data-label="productsTabDirections"><span class="link__label">Directions</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/javascript/directions" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDirectionsJS"><span class="link__label">JS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/directions/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDirectionsAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#distance-matrix" data-category="globalNav" data-action="linkClick" data-label="productsTabDistanceMatrix"><span class="link__label">Distance Matrix</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/javascript/distancematrix" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDistanceMatrixJS"><span class="link__label">JS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/distance-matrix/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDistanceMatrixAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/navigation-sdk/" data-category="globalNav" data-action="linkClick" data-label="productsTabNavigationSDK"><span class="link__label">Navigation SDK</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/navigation/android-sdk" target="_blank" data-category="globalNav" data-action="linkClick" data-label="docClickNavigationSDKAndroid"><span class="link__label">Android</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/navigation/ios-sdk" target="_blank" data-category="globalNav" data-action="linkClick" data-label="docClickNavigationSDKiOS"><span class="link__label">iOS</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#roads" data-category="globalNav" data-action="linkClick" data-label="productsTabRoads"><span class="link__label">Roads</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/roads/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickRoadsAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#route-opt" data-category="globalNav" data-action="linkClick" data-label="productsTabRouteOptimization"><span class="link__label">Route Optimization</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/route-optimization" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickRouteOptimizationAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="header__nav__subnav__items__group">
+<div class="header__nav__subnav__items__group__icon">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Products_Supernav_Icon_03-Places.svg" width="23" height="33" alt="" role="presentation">
+</div>
+<div class="header__nav__subnav__items__group__title">
+Places
+</div>
+<div class="header__nav__subnav__items">
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/address-validation/" data-category="globalNav" data-action="linkClick" data-label="productsTabAddressValidation"><span class="link__label">Address Validation</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/address-validation" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickAddressValidationAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/places/" data-category="globalNav" data-action="linkClick" data-label="productsTabAutocomplete"><span class="link__label">Autocomplete</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/places/web-service/autocomplete" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickAutocompleteAPI"><span class="link__label">API</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/javascript/place-autocomplete-data" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickAutocompleteJS"><span class="link__label">JS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/places/android-sdk/place-autocomplete" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickAutocompleteAndroid"><span class="link__label">Android</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/places/ios-sdk/place-autocomplete" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickAutocompleteiOS"><span class="link__label">iOS</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#geocoding" data-category="globalNav" data-action="linkClick" data-label="productsTabGeocoding"><span class="link__label">Geocoding</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/javascript/geocoding" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickGeocodingJS"><span class="link__label">JS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/geocoding/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickGeocodingAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#geolocation" data-category="globalNav" data-action="linkClick" data-label="productsTabGeolocation"><span class="link__label">Geolocation</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/geolocation/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickGeolocationAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/places/" data-category="globalNav" data-action="linkClick" data-label="productsTabNearbySearch"><span class="link__label">Nearby Search</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/javascript/nearby-search" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickNearbySearchJS"><span class="link__label">JS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/places/web-service/nearby-search" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickNearbySearchAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/places/" data-category="globalNav" data-action="linkClick" data-label="productsTabPlacesDetails"><span class="link__label">Place Details</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/javascript/place-details" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickPlacesDetailsJS"><span class="link__label">JS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/places/android-sdk/place-details" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickPlacesDetailsAndroid"><span class="link__label">Android</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/places/ios-sdk/place-details" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickPlacesDetailsiOS"><span class="link__label">iOS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/places/web-service/place-details" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickPlacesDetailsAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/places/" data-category="globalNav" data-action="linkClick" data-label="productsTabPlacesPhotos"><span class="link__label">Place Photos</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/places/android-sdk/photos" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickPlacesPhotosAndroid"><span class="link__label">Android</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/places/ios-sdk/photos" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickPlacesPhotosiOS"><span class="link__label">iOS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/places/web-service/place-photos" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickPlacesPhotosAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/places/" data-category="globalNav" data-action="linkClick" data-label="productsTabTextSearch"><span class="link__label">Text Search</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/javascript/place-search" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickTextSearchJS"><span class="link__label">JS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/places/web-service/text-search" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickTextSearchAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#time-zone" data-category="globalNav" data-action="linkClick" data-label="productsTabTimeZone"><span class="link__label">Time Zone</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/timezone/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickTimeZoneAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="header__nav__subnav__items__group">
+<div class="header__nav__subnav__items__group__icon">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Products_Supernav_Icon_04-Environment.svg" width="23" height="33" alt="" role="presentation">
+</div>
+<div class="header__nav__subnav__items__group__title">
+Environment
+</div>
+<div class="header__nav__subnav__items">
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/air-quality/" data-category="globalNav" data-action="linkClick" data-label="productsTabAirQuality"><span class="link__label">Air Quality</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/air-quality" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickAirQualityAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/pollen/" data-category="globalNav" data-action="linkClick" data-label="productsTabPollen"><span class="link__label">Pollen</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/pollen" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickPollenAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/solar/" data-category="globalNav" data-action="linkClick" data-label="productsTabSolar"><span class="link__label">Solar</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/solar" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickSolarAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details-dialog>
+</details>
+<details class="header__nav__item header__nav__item--mobile-subnav-disabled header__nav__item--has-subnav">
+<summary opens-subnav="solutions" tabindex="0" role="button">
+Solutions
+</summary>
+<details-dialog>
+<div class="header__nav__subnav header__nav__subnav--rows" subnav-id="solutions">
+<div class="header__nav__subnav__meta">
+<div class="header__nav__subnav__meta__content">
+<button class="header__nav__subnav__back-button" tabindex="0" title="Go back" closes-subnav="solutions">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/menu-arrow.svg" width="16" height="16" alt="" role="presentation">
+</button>
+<div class="header__nav__subnav__title">
+Solutions
+</div>
+<div class="header__nav__subnav__body">
+Find the right combination of products for what you’re looking to&nbsp;achieve.
+</div>
+<div class="header__nav__subnav__blurb">
+Wondering where to&nbsp;start?
+</div>
+</div>
+<div class="header__nav__subnav__meta__cta">
+<div class="header__nav__subnav__button header__nav__subnav__button--alt-margin">
+<a class="button button--medium" href="https://mapsplatform.google.com/resources/solution-finder/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabSolutionFinder">
+Find your solution
+</a>
+</div>
+</div>
+</div>
+<div class="header__nav__subnav__links-wrap">
+<div class="header__nav__subnav__links">
+<div class="header__nav__subnav__items__group">
+<div class="header__nav__subnav__items__group__title">
+By industry
+</div>
+<div class="header__nav__subnav__items">
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/retail/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabRetail">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_Industry-Icon_01-Retail.svg" width="27" height="27" alt="" role="presentation">
+<span class="link__label">Retail</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/transportation-and-logistics/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabTransLog">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_Industry-Icon_02-TransLogistics.svg" width="35" height="25" alt="" role="presentation">
+<span class="link__label">Transportation & Logistics</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/financial-services/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabFinServ">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_Industry-Icon_03-FinServ.svg" width="27" height="28" alt="" role="presentation">
+<span class="link__label">Financial Services</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/real-estate/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabRealEstate">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_Industry-Icon_04-RealEstate.svg" width="27" height="28" alt="" role="presentation">
+<span class="link__label">Real Estate</span>
+</a>
+</div>
+</div>
+</div>
+<div class="header__nav__subnav__items__group">
+<div class="header__nav__subnav__items__group__title">
+By use case
+</div>
+<div class="header__nav__subnav__items">
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/display-the-ideal-location/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabFindIdealLocation">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_01-FindLocation.svg" width="25" height="26" alt="" role="presentation">
+<span class="link__label">Display the Ideal Location</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/visualize-data/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabVisualGeo">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_02-VisGeospatialData.svg" width="26" height="27" alt="" role="presentation">
+<span class="link__label">Visualize Geospatial Data</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/provide-local-information/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabProvideLocalInfo">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_03-ProvideLocalInfo.svg" width="22" height="29" alt="" role="presentation">
+<span class="link__label">Provide Local Information</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/enable-asset-tracking/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabEnableAssestTrack">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_04-EnableAssetTracking.svg" width="30" height="32" alt="" role="presentation">
+<span class="link__label">Enable Asset Tracking</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/offer-efficient-routes/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabEfficientRoutes">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_05-OfferEfficientRoutes.svg" width="26" height="27" alt="" role="presentation">
+<span class="link__label">Offer Efficient Routes</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/build-immersive-experiences/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabBuildImmersive">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_06-BuildInteractiveExp.svg" width="25" height="24" alt="" role="presentation">
+<span class="link__label">Build Immersive Experiences</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/improve-addresses/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabAddressEntry">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_07-SimplifyAddressEntry.svg" width="22" height="29" alt="" role="presentation">
+<span class="link__label">Improve Addresses</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/enrich-transactions/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabEnrichTrans">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_08-EnrichTransactions.svg" width="34" height="23" alt="" role="presentation">
+<span class="link__label">Enrich Transactions</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details-dialog>
+</details>
+<details class="header__nav__item header__nav__item--only-mobile header__nav__item--has-subnav">
+<summary opens-subnav="by-industry" tabindex="0" role="button">
+By industry
+</summary>
+<details-dialog>
+<div class="header__nav__subnav header__nav__subnav--rows" subnav-id="by-industry">
+<div class="header__nav__subnav__meta">
+<div class="header__nav__subnav__meta__content">
+<button class="header__nav__subnav__back-button" tabindex="0" title="Go back" closes-subnav="by-industry">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/menu-arrow.svg" width="16" height="16" alt="" role="presentation">
+</button>
+<div class="header__nav__subnav__title">
+Solutions By&nbsp;Industry
+</div>
+<div class="header__nav__subnav__body">
+</div>
+</div>
+<div class="header__nav__subnav__meta__cta">
+</div>
+</div>
+<div class="header__nav__subnav__links-wrap">
+<div class="header__nav__subnav__links">
+<div class="header__nav__subnav__items">
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/retail/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabRetail">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_Industry-Icon_01-Retail.svg" width="27" height="27" alt="" role="presentation">
+<span class="link__label">Retail</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/transportation-and-logistics/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabTransLog">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_Industry-Icon_02-TransLogistics.svg" width="35" height="25" alt="" role="presentation">
+<span class="link__label">Transportation & Logistics</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/financial-services/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabFinServ">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_Industry-Icon_03-FinServ.svg" width="27" height="28" alt="" role="presentation">
+<span class="link__label">Financial Services</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/real-estate/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabRealEstate">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_Industry-Icon_04-RealEstate.svg" width="27" height="28" alt="" role="presentation">
+<span class="link__label">Real Estate</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details-dialog>
+</details>
+<details class="header__nav__item header__nav__item--only-mobile header__nav__item--has-subnav">
+<summary opens-subnav="by-use-case" tabindex="0" role="button">
+By use case
+</summary>
+<details-dialog>
+<div class="header__nav__subnav header__nav__subnav--rows" subnav-id="by-use-case">
+<div class="header__nav__subnav__meta">
+<div class="header__nav__subnav__meta__content">
+<button class="header__nav__subnav__back-button" tabindex="0" title="Go back" closes-subnav="by-use-case">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/menu-arrow.svg" width="16" height="16" alt="" role="presentation">
+</button>
+<div class="header__nav__subnav__title">
+By use case
+</div>
+<div class="header__nav__subnav__body">
+</div>
+</div>
+<div class="header__nav__subnav__meta__cta">
+</div>
+</div>
+<div class="header__nav__subnav__links-wrap">
+<div class="header__nav__subnav__links">
+<div class="header__nav__subnav__items">
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/display-the-ideal-location/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabFindIdealLocation">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_01-FindLocation.svg" width="25" height="26" alt="" role="presentation">
+<span class="link__label">Display the Ideal Location</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/visualize-data/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabVisualGeo">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_02-VisGeospatialData.svg" width="26" height="27" alt="" role="presentation">
+<span class="link__label">Visualize Geospatial Data</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/provide-local-information/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabProvideLocalInfo">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_03-ProvideLocalInfo.svg" width="22" height="29" alt="" role="presentation">
+<span class="link__label">Provide Local Information</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/enable-asset-tracking/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabEnableAssestTrack">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_04-EnableAssetTracking.svg" width="30" height="32" alt="" role="presentation">
+<span class="link__label">Enable Asset Tracking</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/offer-efficient-routes/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabEfficientRoutes">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_05-OfferEfficientRoutes.svg" width="26" height="27" alt="" role="presentation">
+<span class="link__label">Offer Efficient Routes</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/build-immersive-experiences/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabBuildImmersive">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_06-BuildInteractiveExp.svg" width="25" height="24" alt="" role="presentation">
+<span class="link__label">Build Immersive Experiences</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/improve-addresses/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabAddressEntry">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_07-SimplifyAddressEntry.svg" width="22" height="29" alt="" role="presentation">
+<span class="link__label">Improve Addresses</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/enrich-transactions/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabEnrichTrans">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_08-EnrichTransactions.svg" width="34" height="23" alt="" role="presentation">
+<span class="link__label">Enrich Transactions</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details-dialog>
+</details>
+<div class="header__nav__item">
+<a class="link" href="../../../../developers.google.com/maps/pricing.html" data-category="globalNav" data-action="linkClick" data-label="navPricing"><span class="link__label">Pricing</span>
+</a>
+</div>
+<details class="header__nav__item header__nav__item--has-subnav">
+<summary opens-subnav="resources" tabindex="0" role="button">
+Resources
+</summary>
+<details-dialog>
+<div class="header__nav__subnav header__nav__subnav--rows" subnav-id="resources">
+<div class="header__nav__subnav__meta">
+<div class="header__nav__subnav__meta__content">
+<button class="header__nav__subnav__back-button" tabindex="0" title="Go back" closes-subnav="resources">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/menu-arrow.svg" width="16" height="16" alt="" role="presentation">
+</button>
+<div class="header__nav__subnav__title">
+Resources
+</div>
+<div class="header__nav__subnav__body">
+Check out more info to help you get to know Google Maps Platform&nbsp;better.
+</div>
+</div>
+<div class="header__nav__subnav__meta__cta">
+</div>
+</div>
+<div class="header__nav__subnav__links-wrap">
+<div class="header__nav__subnav__links">
+<div class="header__nav__subnav__items">
+<div class="header__nav__subnav__item">
+<a class="link link--external" href="https://developers.google.com/maps/documentation" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="resourcesTabDocumentation">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Resources_Supernav_Icon_00-Documentation.svg" width="30" height="30" alt="" role="presentation">
+<span class="link__label">Documentation</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/resources/solution-finder/" aria-label="Click to visit the Solution Finder page" data-category="globalNav" data-action="linkClick" data-label="resourcesTabSolutionFinder">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_Icon_SolutionsFinder.svg" width="30" height="30" alt="" role="presentation">
+<span class="link__label">Solution Finder</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/resources/demo-gallery/" data-category="globalNav" data-action="linkClick" data-label="resourcesTabCustomizationGallery">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Resources_Supernav_Icon_00-Customization-Gallery.svg" width="30" height="30" alt="" role="presentation">
+<span class="link__label">Demo Gallery</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/resources/quick-builder/" data-category="globalNav" data-action="linkClick" data-label="resourcesTabQuickBuilder">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Resources_Supernav_Icon_06-QuickBuilder.svg" width="30" height="30" alt="" role="presentation">
+<span class="link__label">Quick Builder</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="../../blog_2.html" data-category="globalNav" data-action="linkClick" data-label="resourcesTabBlog">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Resources_Supernav_Icon_02-Blog.svg" width="30" height="30" alt="" role="presentation">
+<span class="link__label">Blog</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/resources/customer-stories/" data-category="globalNav" data-action="linkClick" data-label="resourcesTabCustomerStories">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Resources_Supernav_Icon_01-Customer-Stories.svg" width="32" height="27" alt="" role="presentation">
+<span class="link__label">Customer Stories</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--external" href="https://cloud.google.com/find-a-partner/?products=Google%20Maps%20Platform" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="resourcesTabPartnerDirectory">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Resources_Supernav_Icon_01-Partner-Directory.svg" width="32" height="30" alt="" role="presentation">
+<span class="link__label">Partner Directory</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/resources/impact-calculator/" data-category="globalNav" data-action="linkClick" data-label="resourcesImpactCalculator">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Resources_Supernav_Icon_07-ImpactCalculator.svg" width="32" height="30" alt="" role="presentation">
+<span class="link__label">Impact Calculator</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--external" href="https://mapsonair.withgoogle.com/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="resourcesTabWebinars">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Resources_Supernav_Icon_04-Webinars.svg" width="32" height="25" alt="" role="presentation">
+<span class="link__label">Webinars</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/resources/whitepapers/" data-category="globalNav" data-action="linkClick" data-label="resourcesTabWhitepapers">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/Nav_Resources_Supernav_Icon_08-whitepapers.svg" width="24" height="27" alt="" role="presentation">
+<span class="link__label">Whitepapers</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="../../trust-center_2.html" data-category="globalNav" data-action="linkClick" data-label="resourcesTrustCenter">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/Nav_Resources_Supernav_Icon_09-trust-center.svg" width="24" height="27" alt="" role="presentation">
+<span class="link__label">Trust Center</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--external" href="https://developers.google.com/maps/architecture" aria-label="Discover use cases and architectures to help build apps with Google Maps Platform." target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="resourcesTabArchitectureCenter">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/Nav_Resources_Supernav_Icon_10-architecture-center.svg" width="24" height="27" alt="" role="presentation">
+<span class="link__label">Architecture Center</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/women-techmakers/" data-category="globalNav" data-action="linkClick" data-label="resourcesTabWomenTechmakers">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/Nav_Resources_Supernav_Icon_11-women-techmakers.svg" width="24" height="27" alt="" role="presentation">
+<span class="link__label">Women Techmakers</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details-dialog>
+</details>
+</div>
+</div>
+</div>
+</header>
+<div class="header__mobile__aside">
+<div class="header__mobile__aside__buttons header__mobile__aside__buttons--group2">
+<div class="header__mobile__aside__button">
+<a class="button button--medium" href="../../../../cloud.google.com/contact-maps/contact-us.html" data-append-utm data-category="globalNav" data-action="mapsCta" data-label="contactSalesMaps">
+Contact sales
+</a>
+</div>
+<div class="header__mobile__aside__button">
+<a class="button" href="https://console.cloud.google.com/google/maps-apis/start?ref=https://mapsplatform.google.com" target="_blank" rel="noopener" aria-label="Visit cloud console to get started" data-append-utm data-category="globalNav" data-action="mapsCta" data-label="getStartedNav">
+Get started
+</a>
+</div>
+</div>
+</div>
+<div class="header__mobile__nav">
+<div class="header__mobile__nav__mask" menu-close>
+</div>
+<div class="header__nav">
+<div class="header__lockup">
+<a class="link" href="../../../mapsplatform_google_default_2.html" aria-label="Google Maps Platform" data-category="globalNav" data-action="linkClick" data-label="navGMPHome">
+<img loading="lazy" src="https://fonts.gstatic.com/s/i/productlogos/maps/v7/192px.svg" width="36" height="36" alt="" role="presentation">
+<span class="link__label"><span>Google</span> Maps Platform</span>
+</a>
+<button class="header__nav__close-button" tabindex="0" title="Close the navigation drawer" menu-close>
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/menu-close.svg" width="16" height="16" alt="Close icon">
+</button>
+</div>
+<div class="header__nav__item">
+<a class="link" href="https://mapsplatform.google.com/why-google/" data-category="globalNav" data-action="linkClick" data-label="navWhyGoogle"><span class="link__label">Why Google</span>
+</a>
+</div>
+<details class="header__nav__item header__nav__item--has-subnav">
+<summary opens-subnav="products" tabindex="0" role="button">
+Products
+</summary>
+<details-dialog>
+<div class="header__nav__subnav header__nav__subnav--columns" subnav-id="products">
+<div class="header__nav__subnav__meta">
+<div class="header__nav__subnav__meta__content">
+<button class="header__nav__subnav__back-button" tabindex="0" title="Go back" closes-subnav="products">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/menu-arrow.svg" width="16" height="16" alt="" role="presentation">
+</button>
+<div class="header__nav__subnav__title">
+Products
+</div>
+<div class="header__nav__subnav__body">
+Discover the APIs and SDKs available to create tailored maps for your&nbsp;business.
+</div>
+</div>
+<div class="header__nav__subnav__meta__cta">
+<div class="header__nav__subnav__button laptop-desktop-only">
+<a class="button laptop-desktop-only button--medium" href="../../../maps-products/maps-products_2.html" data-category="globalNav" data-action="buttonClick" data-label="productsTabSeeAllProducts">
+See all products
+</a>
+</div>
+<div class="header__nav__subnav__button mobile-tablet-only">
+<a class="button mobile-tablet-only button--medium" href="../../../maps-products/maps-products_2.html" data-category="globalNav" data-action="buttonClick" data-label="productsTabSeeAllProducts">
+All products
+</a>
+</div>
+</div>
+</div>
+<div class="header__nav__subnav__links-wrap">
+<div class="header__nav__subnav__links">
+<div class="header__nav__subnav__items__group">
+<div class="header__nav__subnav__items__group__icon">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Products_Supernav_Icon_01-Maps.svg" width="34" height="32" alt="" role="presentation">
+</div>
+<div class="header__nav__subnav__items__group__title">
+Maps
+</div>
+<div class="header__nav__subnav__items">
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/aerial-view/" data-category="globalNav" data-action="linkClick" data-label="productsTabAerialView"><span class="link__label">Aerial View</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/aerial-view/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickAerialViewAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/dynamic-maps/" data-category="globalNav" data-action="linkClick" data-label="productsTabDynamicMaps"><span class="link__label">Dynamic Maps</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/javascript/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDynamicMapsJS"><span class="link__label">JS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/android-sdk/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDynamicMapsAndroid"><span class="link__label">Android</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/ios-sdk/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDynamicMapsiOS"><span class="link__label">iOS</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#dynamic-street-view" data-category="globalNav" data-action="linkClick" data-label="productsTabDynamicStreetView"><span class="link__label">Dynamic Street View</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/javascript/streetview" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDynamicStreetViewJS"><span class="link__label">JS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/android-sdk/streetview" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDynamicStreetViewAndroid"><span class="link__label">Android</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/ios-sdk/streetview" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDynamicStreetViewiOS"><span class="link__label">iOS</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#elevation" data-category="globalNav" data-action="linkClick" data-label="productsTabElevation"><span class="link__label">Elevation</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/elevation/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickElevationAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/map-tiles/" data-category="globalNav" data-action="linkClick" data-label="productsTabMapTiles"><span class="link__label">Map Tiles</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/tile" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickMapTilesAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#maps-datasets" data-category="globalNav" data-action="linkClick" data-label="productsTabMapsDatasets"><span class="link__label">Maps Datasets</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/datasets" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickMapsDatasetsAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#embed" data-category="globalNav" data-action="linkClick" data-label="productsTabEmbed"><span class="link__label">Maps Embed</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/embed/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickEmbedAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#static-maps" data-category="globalNav" data-action="linkClick" data-label="productsTabStaticMaps"><span class="link__label">Static Maps</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/maps-static/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickStaticMapsAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#static-street-view" data-category="globalNav" data-action="linkClick" data-label="productsTabStaticStreetView"><span class="link__label">Static Street View</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/streetview/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickStaticStreetViewAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="header__nav__subnav__items__group">
+<div class="header__nav__subnav__items__group__icon">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Products_Supernav_Icon_02-Routes.svg" width="32" height="32" alt="" role="presentation">
+</div>
+<div class="header__nav__subnav__items__group__title">
+Routes
+</div>
+<div class="header__nav__subnav__items">
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/routes/" data-category="globalNav" data-action="linkClick" data-label="productsTabComputeRoutes"><span class="link__label">Compute Routes</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/routes" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickComputeRoutesAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/routes/" data-category="globalNav" data-action="linkClick" data-label="productsTabComputeRoutesMatrix"><span class="link__label">Compute Routes Matrix</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/routes" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickComputeRoutesMatrixAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#directions" data-category="globalNav" data-action="linkClick" data-label="productsTabDirections"><span class="link__label">Directions</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/javascript/directions" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDirectionsJS"><span class="link__label">JS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/directions/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDirectionsAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#distance-matrix" data-category="globalNav" data-action="linkClick" data-label="productsTabDistanceMatrix"><span class="link__label">Distance Matrix</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/javascript/distancematrix" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDistanceMatrixJS"><span class="link__label">JS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/distance-matrix/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickDistanceMatrixAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/navigation-sdk/" data-category="globalNav" data-action="linkClick" data-label="productsTabNavigationSDK"><span class="link__label">Navigation SDK</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/navigation/android-sdk" target="_blank" data-category="globalNav" data-action="linkClick" data-label="docClickNavigationSDKAndroid"><span class="link__label">Android</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/navigation/ios-sdk" target="_blank" data-category="globalNav" data-action="linkClick" data-label="docClickNavigationSDKiOS"><span class="link__label">iOS</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#roads" data-category="globalNav" data-action="linkClick" data-label="productsTabRoads"><span class="link__label">Roads</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/roads/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickRoadsAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#route-opt" data-category="globalNav" data-action="linkClick" data-label="productsTabRouteOptimization"><span class="link__label">Route Optimization</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/route-optimization" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickRouteOptimizationAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="header__nav__subnav__items__group">
+<div class="header__nav__subnav__items__group__icon">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Products_Supernav_Icon_03-Places.svg" width="23" height="33" alt="" role="presentation">
+</div>
+<div class="header__nav__subnav__items__group__title">
+Places
+</div>
+<div class="header__nav__subnav__items">
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/address-validation/" data-category="globalNav" data-action="linkClick" data-label="productsTabAddressValidation"><span class="link__label">Address Validation</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/address-validation" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickAddressValidationAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/places/" data-category="globalNav" data-action="linkClick" data-label="productsTabAutocomplete"><span class="link__label">Autocomplete</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/places/web-service/autocomplete" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickAutocompleteAPI"><span class="link__label">API</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/javascript/place-autocomplete-data" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickAutocompleteJS"><span class="link__label">JS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/places/android-sdk/place-autocomplete" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickAutocompleteAndroid"><span class="link__label">Android</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/places/ios-sdk/place-autocomplete" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickAutocompleteiOS"><span class="link__label">iOS</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#geocoding" data-category="globalNav" data-action="linkClick" data-label="productsTabGeocoding"><span class="link__label">Geocoding</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/javascript/geocoding" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickGeocodingJS"><span class="link__label">JS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/geocoding/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickGeocodingAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#geolocation" data-category="globalNav" data-action="linkClick" data-label="productsTabGeolocation"><span class="link__label">Geolocation</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/geolocation/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickGeolocationAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/places/" data-category="globalNav" data-action="linkClick" data-label="productsTabNearbySearch"><span class="link__label">Nearby Search</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/javascript/nearby-search" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickNearbySearchJS"><span class="link__label">JS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/places/web-service/nearby-search" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickNearbySearchAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/places/" data-category="globalNav" data-action="linkClick" data-label="productsTabPlacesDetails"><span class="link__label">Place Details</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/javascript/place-details" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickPlacesDetailsJS"><span class="link__label">JS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/places/android-sdk/place-details" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickPlacesDetailsAndroid"><span class="link__label">Android</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/places/ios-sdk/place-details" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickPlacesDetailsiOS"><span class="link__label">iOS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/places/web-service/place-details" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickPlacesDetailsAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/places/" data-category="globalNav" data-action="linkClick" data-label="productsTabPlacesPhotos"><span class="link__label">Place Photos</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/places/android-sdk/photos" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickPlacesPhotosAndroid"><span class="link__label">Android</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/places/ios-sdk/photos" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickPlacesPhotosiOS"><span class="link__label">iOS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/places/web-service/place-photos" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickPlacesPhotosAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/places/" data-category="globalNav" data-action="linkClick" data-label="productsTabTextSearch"><span class="link__label">Text Search</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/javascript/place-search" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickTextSearchJS"><span class="link__label">JS</span>
+</a>
+<a class="link" href="https://developers.google.com/maps/documentation/places/web-service/text-search" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickTextSearchAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="../../../maps-products/maps-products_2.html#time-zone" data-category="globalNav" data-action="linkClick" data-label="productsTabTimeZone"><span class="link__label">Time Zone</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/timezone/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickTimeZoneAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="header__nav__subnav__items__group">
+<div class="header__nav__subnav__items__group__icon">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Products_Supernav_Icon_04-Environment.svg" width="23" height="33" alt="" role="presentation">
+</div>
+<div class="header__nav__subnav__items__group__title">
+Environment
+</div>
+<div class="header__nav__subnav__items">
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/air-quality/" data-category="globalNav" data-action="linkClick" data-label="productsTabAirQuality"><span class="link__label">Air Quality</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/air-quality" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickAirQualityAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/pollen/" data-category="globalNav" data-action="linkClick" data-label="productsTabPollen"><span class="link__label">Pollen</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/pollen" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickPollenAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--blue" href="https://mapsplatform.google.com/maps-products/solar/" data-category="globalNav" data-action="linkClick" data-label="productsTabSolar"><span class="link__label">Solar</span>
+</a>
+<div class="header__nav__subnav__item__external-links">
+<a class="link" href="https://developers.google.com/maps/documentation/solar" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="docClickSolarAPI"><span class="link__label">API</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details-dialog>
+</details>
+<details class="header__nav__item header__nav__item--mobile-subnav-disabled header__nav__item--has-subnav">
+<summary opens-subnav="solutions" tabindex="0" role="button">
+Solutions
+</summary>
+<details-dialog>
+<div class="header__nav__subnav header__nav__subnav--rows" subnav-id="solutions">
+<div class="header__nav__subnav__meta">
+<div class="header__nav__subnav__meta__content">
+<button class="header__nav__subnav__back-button" tabindex="0" title="Go back" closes-subnav="solutions">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/menu-arrow.svg" width="16" height="16" alt="" role="presentation">
+</button>
+<div class="header__nav__subnav__title">
+Solutions
+</div>
+<div class="header__nav__subnav__body">
+Find the right combination of products for what you’re looking to&nbsp;achieve.
+</div>
+<div class="header__nav__subnav__blurb">
+Wondering where to&nbsp;start?
+</div>
+</div>
+<div class="header__nav__subnav__meta__cta">
+<div class="header__nav__subnav__button header__nav__subnav__button--alt-margin">
+<a class="button button--medium" href="https://mapsplatform.google.com/resources/solution-finder/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabSolutionFinder">
+Find your solution
+</a>
+</div>
+</div>
+</div>
+<div class="header__nav__subnav__links-wrap">
+<div class="header__nav__subnav__links">
+<div class="header__nav__subnav__items__group">
+<div class="header__nav__subnav__items__group__title">
+By industry
+</div>
+<div class="header__nav__subnav__items">
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/retail/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabRetail">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_Industry-Icon_01-Retail.svg" width="27" height="27" alt="" role="presentation">
+<span class="link__label">Retail</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/transportation-and-logistics/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabTransLog">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_Industry-Icon_02-TransLogistics.svg" width="35" height="25" alt="" role="presentation">
+<span class="link__label">Transportation & Logistics</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/financial-services/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabFinServ">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_Industry-Icon_03-FinServ.svg" width="27" height="28" alt="" role="presentation">
+<span class="link__label">Financial Services</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/real-estate/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabRealEstate">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_Industry-Icon_04-RealEstate.svg" width="27" height="28" alt="" role="presentation">
+<span class="link__label">Real Estate</span>
+</a>
+</div>
+</div>
+</div>
+<div class="header__nav__subnav__items__group">
+<div class="header__nav__subnav__items__group__title">
+By use case
+</div>
+<div class="header__nav__subnav__items">
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/display-the-ideal-location/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabFindIdealLocation">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_01-FindLocation.svg" width="25" height="26" alt="" role="presentation">
+<span class="link__label">Display the Ideal Location</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/visualize-data/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabVisualGeo">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_02-VisGeospatialData.svg" width="26" height="27" alt="" role="presentation">
+<span class="link__label">Visualize Geospatial Data</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/provide-local-information/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabProvideLocalInfo">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_03-ProvideLocalInfo.svg" width="22" height="29" alt="" role="presentation">
+<span class="link__label">Provide Local Information</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/enable-asset-tracking/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabEnableAssestTrack">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_04-EnableAssetTracking.svg" width="30" height="32" alt="" role="presentation">
+<span class="link__label">Enable Asset Tracking</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/offer-efficient-routes/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabEfficientRoutes">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_05-OfferEfficientRoutes.svg" width="26" height="27" alt="" role="presentation">
+<span class="link__label">Offer Efficient Routes</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/build-immersive-experiences/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabBuildImmersive">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_06-BuildInteractiveExp.svg" width="25" height="24" alt="" role="presentation">
+<span class="link__label">Build Immersive Experiences</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/improve-addresses/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabAddressEntry">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_07-SimplifyAddressEntry.svg" width="22" height="29" alt="" role="presentation">
+<span class="link__label">Improve Addresses</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/enrich-transactions/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabEnrichTrans">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_08-EnrichTransactions.svg" width="34" height="23" alt="" role="presentation">
+<span class="link__label">Enrich Transactions</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details-dialog>
+</details>
+<details class="header__nav__item header__nav__item--only-mobile header__nav__item--has-subnav">
+<summary opens-subnav="by-industry" tabindex="0" role="button">
+By industry
+</summary>
+<details-dialog>
+<div class="header__nav__subnav header__nav__subnav--rows" subnav-id="by-industry">
+<div class="header__nav__subnav__meta">
+<div class="header__nav__subnav__meta__content">
+<button class="header__nav__subnav__back-button" tabindex="0" title="Go back" closes-subnav="by-industry">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/menu-arrow.svg" width="16" height="16" alt="" role="presentation">
+</button>
+<div class="header__nav__subnav__title">
+Solutions By&nbsp;Industry
+</div>
+<div class="header__nav__subnav__body">
+</div>
+</div>
+<div class="header__nav__subnav__meta__cta">
+</div>
+</div>
+<div class="header__nav__subnav__links-wrap">
+<div class="header__nav__subnav__links">
+<div class="header__nav__subnav__items">
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/retail/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabRetail">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_Industry-Icon_01-Retail.svg" width="27" height="27" alt="" role="presentation">
+<span class="link__label">Retail</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/transportation-and-logistics/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabTransLog">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_Industry-Icon_02-TransLogistics.svg" width="35" height="25" alt="" role="presentation">
+<span class="link__label">Transportation & Logistics</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/financial-services/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabFinServ">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_Industry-Icon_03-FinServ.svg" width="27" height="28" alt="" role="presentation">
+<span class="link__label">Financial Services</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/real-estate/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabRealEstate">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_Industry-Icon_04-RealEstate.svg" width="27" height="28" alt="" role="presentation">
+<span class="link__label">Real Estate</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details-dialog>
+</details>
+<details class="header__nav__item header__nav__item--only-mobile header__nav__item--has-subnav">
+<summary opens-subnav="by-use-case" tabindex="0" role="button">
+By use case
+</summary>
+<details-dialog>
+<div class="header__nav__subnav header__nav__subnav--rows" subnav-id="by-use-case">
+<div class="header__nav__subnav__meta">
+<div class="header__nav__subnav__meta__content">
+<button class="header__nav__subnav__back-button" tabindex="0" title="Go back" closes-subnav="by-use-case">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/menu-arrow.svg" width="16" height="16" alt="" role="presentation">
+</button>
+<div class="header__nav__subnav__title">
+By use case
+</div>
+<div class="header__nav__subnav__body">
+</div>
+</div>
+<div class="header__nav__subnav__meta__cta">
+</div>
+</div>
+<div class="header__nav__subnav__links-wrap">
+<div class="header__nav__subnav__links">
+<div class="header__nav__subnav__items">
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/display-the-ideal-location/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabFindIdealLocation">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_01-FindLocation.svg" width="25" height="26" alt="" role="presentation">
+<span class="link__label">Display the Ideal Location</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/visualize-data/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabVisualGeo">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_02-VisGeospatialData.svg" width="26" height="27" alt="" role="presentation">
+<span class="link__label">Visualize Geospatial Data</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/provide-local-information/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabProvideLocalInfo">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_03-ProvideLocalInfo.svg" width="22" height="29" alt="" role="presentation">
+<span class="link__label">Provide Local Information</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/enable-asset-tracking/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabEnableAssestTrack">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_04-EnableAssetTracking.svg" width="30" height="32" alt="" role="presentation">
+<span class="link__label">Enable Asset Tracking</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/offer-efficient-routes/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabEfficientRoutes">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_05-OfferEfficientRoutes.svg" width="26" height="27" alt="" role="presentation">
+<span class="link__label">Offer Efficient Routes</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/build-immersive-experiences/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabBuildImmersive">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_06-BuildInteractiveExp.svg" width="25" height="24" alt="" role="presentation">
+<span class="link__label">Build Immersive Experiences</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/improve-addresses/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabAddressEntry">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_07-SimplifyAddressEntry.svg" width="22" height="29" alt="" role="presentation">
+<span class="link__label">Improve Addresses</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/solutions/enrich-transactions/" data-category="globalNav" data-action="linkClick" data-label="solutionsTabEnrichTrans">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_UseCase-Icon_08-EnrichTransactions.svg" width="34" height="23" alt="" role="presentation">
+<span class="link__label">Enrich Transactions</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details-dialog>
+</details>
+<div class="header__nav__item">
+<a class="link" href="../../../../developers.google.com/maps/pricing.html" data-category="globalNav" data-action="linkClick" data-label="navPricing"><span class="link__label">Pricing</span>
+</a>
+</div>
+<details class="header__nav__item header__nav__item--has-subnav">
+<summary opens-subnav="resources" tabindex="0" role="button">
+Resources
+</summary>
+<details-dialog>
+<div class="header__nav__subnav header__nav__subnav--rows" subnav-id="resources">
+<div class="header__nav__subnav__meta">
+<div class="header__nav__subnav__meta__content">
+<button class="header__nav__subnav__back-button" tabindex="0" title="Go back" closes-subnav="resources">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/menu-arrow.svg" width="16" height="16" alt="" role="presentation">
+</button>
+<div class="header__nav__subnav__title">
+Resources
+</div>
+<div class="header__nav__subnav__body">
+Check out more info to help you get to know Google Maps Platform&nbsp;better.
+</div>
+</div>
+<div class="header__nav__subnav__meta__cta">
+</div>
+</div>
+<div class="header__nav__subnav__links-wrap">
+<div class="header__nav__subnav__links">
+<div class="header__nav__subnav__items">
+<div class="header__nav__subnav__item">
+<a class="link link--external" href="https://developers.google.com/maps/documentation" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="resourcesTabDocumentation">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Resources_Supernav_Icon_00-Documentation.svg" width="30" height="30" alt="" role="presentation">
+<span class="link__label">Documentation</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/resources/solution-finder/" aria-label="Click to visit the Solution Finder page" data-category="globalNav" data-action="linkClick" data-label="resourcesTabSolutionFinder">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Solutions_Supernav_Icon_SolutionsFinder.svg" width="30" height="30" alt="" role="presentation">
+<span class="link__label">Solution Finder</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/resources/demo-gallery/" data-category="globalNav" data-action="linkClick" data-label="resourcesTabCustomizationGallery">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Resources_Supernav_Icon_00-Customization-Gallery.svg" width="30" height="30" alt="" role="presentation">
+<span class="link__label">Demo Gallery</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/resources/quick-builder/" data-category="globalNav" data-action="linkClick" data-label="resourcesTabQuickBuilder">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Resources_Supernav_Icon_06-QuickBuilder.svg" width="30" height="30" alt="" role="presentation">
+<span class="link__label">Quick Builder</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="../../blog_2.html" data-category="globalNav" data-action="linkClick" data-label="resourcesTabBlog">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Resources_Supernav_Icon_02-Blog.svg" width="30" height="30" alt="" role="presentation">
+<span class="link__label">Blog</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/resources/customer-stories/" data-category="globalNav" data-action="linkClick" data-label="resourcesTabCustomerStories">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Resources_Supernav_Icon_01-Customer-Stories.svg" width="32" height="27" alt="" role="presentation">
+<span class="link__label">Customer Stories</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--external" href="https://cloud.google.com/find-a-partner/?products=Google%20Maps%20Platform" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="resourcesTabPartnerDirectory">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Resources_Supernav_Icon_01-Partner-Directory.svg" width="32" height="30" alt="" role="presentation">
+<span class="link__label">Partner Directory</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/resources/impact-calculator/" data-category="globalNav" data-action="linkClick" data-label="resourcesImpactCalculator">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Resources_Supernav_Icon_07-ImpactCalculator.svg" width="32" height="30" alt="" role="presentation">
+<span class="link__label">Impact Calculator</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--external" href="https://mapsonair.withgoogle.com/" target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="resourcesTabWebinars">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/NAV_Resources_Supernav_Icon_04-Webinars.svg" width="32" height="25" alt="" role="presentation">
+<span class="link__label">Webinars</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/resources/whitepapers/" data-category="globalNav" data-action="linkClick" data-label="resourcesTabWhitepapers">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/Nav_Resources_Supernav_Icon_08-whitepapers.svg" width="24" height="27" alt="" role="presentation">
+<span class="link__label">Whitepapers</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="../../trust-center_2.html" data-category="globalNav" data-action="linkClick" data-label="resourcesTrustCenter">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/Nav_Resources_Supernav_Icon_09-trust-center.svg" width="24" height="27" alt="" role="presentation">
+<span class="link__label">Trust Center</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link link--external" href="https://developers.google.com/maps/architecture" aria-label="Discover use cases and architectures to help build apps with Google Maps Platform." target="_blank" rel="noopener" data-category="globalNav" data-action="linkClick" data-label="resourcesTabArchitectureCenter">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/Nav_Resources_Supernav_Icon_10-architecture-center.svg" width="24" height="27" alt="" role="presentation">
+<span class="link__label">Architecture Center</span>
+</a>
+</div>
+<div class="header__nav__subnav__item">
+<a class="link" href="https://mapsplatform.google.com/women-techmakers/" data-category="globalNav" data-action="linkClick" data-label="resourcesTabWomenTechmakers">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/header/Nav_Resources_Supernav_Icon_11-women-techmakers.svg" width="24" height="27" alt="" role="presentation">
+<span class="link__label">Women Techmakers</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</details-dialog>
+</details>
+</div>
+</div>
+<div id="main">
+<div class="spacer spacer--medium">
+</div>
+<div class="blog-post" data-external-links>
+<div class="blog-post__container">
+<div class="blog-post__chapter">
+<h1 class="blog-post__chapter__title">
+Google I/O ‘24: Introducing Gemini model capabilities for Places API, 3D Maps in the Maps JavaScript API, and open-source React&nbsp;components
+</h1>
+</div>
+<div class="blog-post__image">
+<degu-image src="https://lh3.googleusercontent.com/kK3U5sPYRqp2m_wcCKgRqcicc56z71QE11a6tw6USoquEsGBO4iMnIhiPOvPXmKmnobPcPrloFTb70b6yzj8fEQnduc1RwMZoyo" width="2880" height="1200" style="aspect-ratio: 2880/1200" max-dpr="2" title="Google I/O ‘24: Overview Header" fetch-priority="high">
+</degu-image>
+</div>
+<div class="blog-post__social blog-post__social--desktop blog-post__social--hero share" data-share-title="Google I/O ‘24: Introducing Gemini model capabilities for Places API, 3D Maps in the Maps JavaScript API, and open-source React components" data-share-description="Google I/O ‘24: Introducing Gemini model capabilities for Places API, 3D Maps in the Maps JavaScript API, and open-source React components">
+<div class="blog-post__social__sticky">
+<button class="button share-twitter button--icon blog-post__social__sticky__icon share-twitter button--icon">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/social-twitter.svg" width="20" height="17" alt="" role="presentation">
+</button>
+<button class="button share-linkedin button--icon blog-post__social__sticky__icon share-linkedin button--icon">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/social-linkedin.svg" width="24" height="24" alt="" role="presentation">
+</button>
+<button class="button share-facebook button--icon blog-post__social__sticky__icon share-facebook button--icon">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/social-facebook.svg" width="20" height="20" alt="" role="presentation">
+</button>
+<a class="button share-email button--icon blog-post__social__sticky__icon share-email button--icon" href="google-i-o-24-introducing-gemini-model-capabilities-for-places-api-3d-maps.html#">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/social-email.svg" width="24" height="24" alt="" role="presentation">
+</a>
+</div>
+</div>
+<div class="blog-post__aside">
+<div class="blog-post__aside__meta">
+<div class="blog-post__aside__author">
+<div class="blog-post__aside__author__name">
+Ahsan Ashraf
+</div>
+<div class="blog-post__aside__author__role">
+Product Marketing Manager, Google Maps&nbsp;Platform
+</div>
+</div>
+<div class="blog-post__aside__published-date">
+May 14, 2024
+</div>
+</div>
+<div class="blog-post__social blog-post__social--mobile share" data-share-title="Google I/O ‘24: Introducing Gemini model capabilities for Places API, 3D Maps in the Maps JavaScript API, and open-source React components" data-share-description="Google I/O ‘24: Introducing Gemini model capabilities for Places API, 3D Maps in the Maps JavaScript API, and open-source React components">
+<div class="blog-post__social__sticky">
+<button class="button share-twitter button--icon blog-post__social__sticky__icon share-twitter button--icon">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/social-twitter.svg" width="20" height="17" alt="" role="presentation">
+</button>
+<button class="button share-linkedin button--icon blog-post__social__sticky__icon share-linkedin button--icon">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/social-linkedin.svg" width="24" height="24" alt="" role="presentation">
+</button>
+<button class="button share-facebook button--icon blog-post__social__sticky__icon share-facebook button--icon">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/social-facebook.svg" width="20" height="20" alt="" role="presentation">
+</button>
+<a class="button share-email button--icon blog-post__social__sticky__icon share-email button--icon" href="google-i-o-24-introducing-gemini-model-capabilities-for-places-api-3d-maps.html#">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/social-email.svg" width="24" height="24" alt="" role="presentation">
+</a>
+</div>
+</div>
+<div class="blog-post__aside__callout__wrap">
+<div class="blog-post__aside__callout">
+<div class="blog-post__aside__callout__title">Try Google Maps&nbsp;Platform</div>
+<div class="blog-post__aside__callout__body">Get $200 usage monthly for no charge. Starting March 1, 2025, build more for&nbsp;free.*</div>
+<div class="blog-post__aside__callout__cta">
+<a class="button" href="../../../../developers.google.com/maps/pricing.html" data-category="blog" data-action="mapsCta" data-label="getStartedAside">
+Learn more
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="blog-post__content">
+<div class="blog-post__content__body" body>
+<p><b><i>Editor’s Note:</i></b><i> This post is part of our Google I/O 2024 series sharing the latest Google Maps Platform news from our annual developer conference. To learn how to create immersive map visualization experiences using Photorealistic 3D Maps in JavaScript and how to build experiences using Gemini model capabilities for the Places API, </i><a href="https://io.google/2024/explore/?q=location-maps"><i><u>register for our sessions</u></i></a><i> on May 16.</i></p>
+<hr>
+<p>Nearly 20 years ago, the first Google Maps API launched to the world, sparking a revolution in geospatial experiences across the web and mobile. Since then, Google Maps Platform has evolved alongside our developer community, expanding from simple 2D maps to high-resolution satellite imagery to realistic 3D models of the real world–with AI at the foundation of keeping our maps data as up to date as possible and AI and computer vision fusing it all together to power more immersive experiences.  </p>
+<p>Today, we’re announcing new capabilities that push the boundaries of what you can do with Google Maps Platform 3D datasets even further. We’re extending the usage of AI beyond our data and into our products for the very first time, and making it easier for you to build with us. First, we’re bringing the capabilities of the Gemini model to Google Maps Platform, starting with the Places API. We’re also bringing Photorealistic 3D Maps to our most-used API, Maps JavaScript, with Google-powered rendering. And with the launch of our open-source React component library, building with Google Maps Platform is faster and more efficient than ever. </p>
+<h2>Help users more easily find ideal places with AI-powered features for Places API</h2>
+<p>With the Experimental release of Gemini model capabilities for Places API, you can now show helpful, generative AI summaries of places and areas. Place summaries are available for places like restaurants, shops, tourist attractions and parks. They make it easier for your users to quickly find the places they’re looking for, and save you from writing custom descriptions of places. While area summaries help your users better understand what to do nearby, with overviews of what shopping, restaurants, and attractions are in walking distance from a place. </p>
+<p>We&#39;re also making it easier for your users to understand why they see particular search results by providing more context. With AI-powered contextual search results, if users search for “dog friendly cafes” they’ll see a list of relevant dining spots. Plus they’ll see reviews and photos of dogs at the restaurants displayed prominently. To learn more about these new features, check out our <a href="https://mapsplatform.google.com/resources/blog/provide-ai-powered-place-and-area-summaries-with-gemini-model-capabilities">announcement blog</a>.</p>
+<figure class="figure">
+<img src="https://storage.googleapis.com/gweb-mapsplatform-cdn/uploads/lq6qgs6wvqjt-2w0STWlRDNhtixy8zTmDan-2b77405465cc2b1f98dca3b5d209b679-Place_summaries.gif" width="390" height="825" alt="Gemini capabilities place summaries" style="aspect-ratio: 390/825" loading="lazy">
+<figcaption>
+<p>Users can more easily find and select restaurants with place summaries</p>
+</figcaption>
+</figure>
+<h2>Create immersive experiences with Maps JavaScript API</h2>
+<p>The Experimental launch of Photorealistic 3D Maps in the Maps JavaScript API brings in a new era of immersive web experiences built through a single, familiar API. For the first time, developers can seamlessly access Google’s high-resolution 3D maps in Maps JavaScript using Google’s own rendering technology. This gives developers more choice and ease of use, which can streamline development and help ensure a high-performing experience for the end user. </p>
+<p>Photorealistic 3D Maps in JavaScript brings 3D data to life using the native web programming language, empowering developers to create captivating experiences without additional rendering tools. Whether enhancing real estate virtual tours, bringing global destinations to life for travel sites, or creating hyper-realistic urban environments, 3D Maps in JavaScript now makes it easier than ever to build immersive 3D experiences–all powered by Google’s expansive coverage and trusted infrastructure. To learn more about using Maps JavaScript API to build 3D mapping experiences, check out the <a href="https://mapsplatform.google.com/resources/blog/access-3d-maps-in-maps-javascript-api-starting-today">announcement blog</a>.</p>
+<p>You can check out 3D maps right here. Use the<b> </b><b><i>interactive</i></b> 3D map below to explore the breathtaking Amalfi Coast. Travel along the coast or zoom in to spot the iconic Cattedrale di Sant’Andrea. Imagine the possibilities you can unlock for your end users.</p>
+<figure class="block-iframe">
+<iframe src="https://com-maps-js-api.web.app/" class="block-iframe__iframe" style="--iframe-width:600;--iframe-height:400;"></iframe>
+<figcaption class="block-iframe__caption block-iframe__caption--interactive-map">
+<svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="desktop-only">
+<rect width="44" height="44" rx="22" fill="#1C73E8"/>
+<path d="M23.775 32L20.15 24.2L16 30V12L30 23H22.9L26.5 30.725L23.775 32Z" fill="white"/>
+</svg>
+<svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg" class="mobile-only">
+<rect y="0.5" width="32" height="32" rx="16" fill="#1C73E8"/>
+<path d="M15.6667 24.5C15.3333 24.5 15.0208 24.4306 14.7292 24.2917C14.4375 24.1528 14.1806 23.9583 13.9583 23.7083L9.22917 18.2292L9.83333 17.625C10.0417 17.4167 10.2917 17.2778 10.5833 17.2083C10.875 17.1389 11.1597 17.1597 11.4375 17.2708L13 17.8958V11.25C13 11.0417 13.0694 10.8681 13.2083 10.7292C13.3611 10.5764 13.5417 10.5 13.75 10.5C13.9583 10.5 14.1319 10.5764 14.2708 10.7292C14.4236 10.8681 14.5 11.0417 14.5 11.25V20.1042L11.9792 19.1042L15.1042 22.75C15.1736 22.8333 15.2569 22.8958 15.3542 22.9375C15.4514 22.9792 15.5556 23 15.6667 23H19C19.4167 23 19.7708 22.8542 20.0625 22.5625C20.3542 22.2708 20.5 21.9167 20.5 21.5V17.9583C20.5 17.8194 20.4444 17.7083 20.3333 17.625C20.2361 17.5417 20.1111 17.5 19.9583 17.5H16V16H19.9583C20.5139 16 20.9931 16.1875 21.3958 16.5625C21.7986 16.9375 22 17.4028 22 17.9583V21.5C22 22.3333 21.7083 23.0417 21.125 23.625C20.5417 24.2083 19.8333 24.5 19 24.5H15.6667ZM10.0625 13.875C9.88194 13.5556 9.74306 13.2222 9.64583 12.875C9.54861 12.5139 9.5 12.1389 9.5 11.75C9.5 10.5694 9.90972 9.56944 10.7292 8.75C11.5625 7.91667 12.5694 7.5 13.75 7.5C14.9306 7.5 15.9306 7.91667 16.75 8.75C17.5833 9.56944 18 10.5694 18 11.75C18 12.1389 17.9514 12.5139 17.8542 12.875C17.7569 13.2222 17.6181 13.5556 17.4375 13.875L16.125 13.125C16.2361 12.9306 16.3264 12.7153 16.3958 12.4792C16.4653 12.2431 16.5 12 16.5 11.75C16.5 10.9861 16.2292 10.3403 15.6875 9.8125C15.1597 9.27083 14.5139 9 13.75 9C12.9861 9 12.3333 9.27083 11.7917 9.8125C11.2639 10.3403 11 10.9861 11 11.75C11 12 11.0347 12.2431 11.1042 12.4792C11.1736 12.7153 11.2639 12.9306 11.375 13.125L10.0625 13.875Z" fill="white"/>
+</svg>
+<div>
+<p><b>Interactive Map:</b> Explore the Amalfi Coast with this interactive 3D map created using Photorealistic 3D Maps in Maps JavaScript API</p>
+</div>
+</figcaption>
+</figure>
+<h2>Build faster and easier with React Components</h2>
+<p>Last year at Google I/O, we announced the release of web components to help developers build maps faster and with ease. This year, we are announcing the official 1.0 release of the <a href="https://visgl.github.io/react-google-maps/"><u>React Google Maps Library</u></a>, the first Google-sponsored library for integrating Maps Javascript API components in a React web app.</p>
+<div class="code-block" code>
+<pre><code>import React from &#39;react&#39;;
+import {createRoot} from &#39;react-dom/client&#39;;
+import {APIProvider, Map} from &#39;@vis.gl/react-google-maps&#39;;
+
+const App = () =&gt; (
+  &lt;APIProvider apiKey={API_KEY}&gt;
+    &lt;Map
+      style={{width: &#39;100vw&#39;, height: &#39;100vh&#39;}}
+      defaultCenter={{lat: 22.54992, lng: 0}}
+      defaultZoom={3}
+      gestureHandling={&#39;greedy&#39;}
+      disableDefaultUI={true}
+    /&gt;
+  &lt;/APIProvider&gt;
+);
+
+const root = createRoot(document.querySelector(&#39;#app&#39;));
+root.render(
+    &lt;App /&gt;
+);</code></pre>
+<button class="code-block__copy" aria-label="copy">
+<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+<path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/>
+</svg>
+</button>
+<div class="code-block__alert">Copied to clipboard!</div>
+</div>
+<p>This library makes it easy for developers to integrate all of the features provided by Maps JavaScript API into their React applications. Learn more about how to can get started by checking out the <a href="https://mapsplatform.google.com/resources/blog/google-maps-platform-graduates-react-integration-library-to-1-0">announcement blog</a>.</p>
+<h2>Learn more</h2>
+<p>These advancements represent our commitment to pushing the boundaries of what’s possible with maps, empowering developers to build the next generation of geospatial experiences. To learn more about these new products and features, check out our <a href="https://io.google/2024/explore/1a064e05-02de-4945-b67c-2f91460123f6/"><u>Google I/O technical session</u></a> and our <a href="https://io.google/2024/explore/b2f2298c-e0d9-4ee0-9f3c-e067c665e56f/"><u>workshop</u></a> focused on the Maps Compose library. And don’t forget to tag Google Maps Platform on <a href="https://www.linkedin.com/showcase/googlemapsplatform/">LinkedIn</a>. We can&#39;t wait to see what you build.</p>
+</div>
+<div class="blog-post__content__tags">
+<a href="https://mapsplatform.google.com/resources/blog/?tags=places#all-the-latest" class="blog-post__body__tags__tag button button--tag" aria-label="Browse articles about Places">
+Places
+</a>
+<a href="https://mapsplatform.google.com/resources/blog/?tags=build-immersive-experiences#all-the-latest" class="blog-post__body__tags__tag button button--tag" aria-label="Browse articles about building immersive experiences">
+Build immersive experiences
+</a>
+<a href="https://mapsplatform.google.com/resources/blog/?tags=maps#all-the-latest" class="blog-post__body__tags__tag button button--tag" aria-label="Browse articles about Maps products ">
+Maps
+</a>
+<a href="https://mapsplatform.google.com/resources/blog/?tags=web#all-the-latest" class="blog-post__body__tags__tag button button--tag" aria-label="Browse articles about Web">
+Web
+</a>
+<a href="https://mapsplatform.google.com/resources/blog/?tags=display-the-ideal-location#all-the-latest" class="blog-post__body__tags__tag button button--tag" aria-label="Browse articles about displaying the ideal location">
+Display the ideal location
+</a>
+<a href="https://mapsplatform.google.com/resources/blog/?tags=visualize-geospatial-data#all-the-latest" class="blog-post__body__tags__tag button button--tag" aria-label="Browse articles about visualizing geospatial data">
+Visualize geospatial data
+</a>
+<a href="https://mapsplatform.google.com/resources/blog/?tags=3d#all-the-latest" class="blog-post__body__tags__tag button button--tag" aria-label="Browse articles about 3D mapping">
+3D
+</a>
+<a href="https://mapsplatform.google.com/resources/blog/?tags=interactive-maps#all-the-latest" class="blog-post__body__tags__tag button button--tag" aria-label="">
+Interactive Maps
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="fullbleed-5050__wrap fullbleed-5050__wrap--placement-specific-get-going-with-google fullbleed-5050__wrap--background-centered">
+<div class="fullbleed-5050 fullbleed-5050--placement-specific-get-going-with-google fullbleed-5050--background-centered fullbleed-5050--background-asset">
+<div class="fullbleed-5050__background-asset">
+<picture>
+<source type="image/webp" srcset="https://lh3.googleusercontent.com/4QOjqBImLWiBXQdGlPZ-zkrLDizbwv924XzhA5TJpOn1-7vTDMNZL0JB5pHVJX4MZh8nWnzZeG4xlXAUe2S9Yosg-b3q7yucB_-7PQ=rw-e365-w2880, https://lh3.googleusercontent.com/4QOjqBImLWiBXQdGlPZ-zkrLDizbwv924XzhA5TJpOn1-7vTDMNZL0JB5pHVJX4MZh8nWnzZeG4xlXAUe2S9Yosg-b3q7yucB_-7PQ=rw-e365-w5760 2x" media="(min-width: 1440px)">
+<source type="image/webp" srcset="https://lh3.googleusercontent.com/4QOjqBImLWiBXQdGlPZ-zkrLDizbwv924XzhA5TJpOn1-7vTDMNZL0JB5pHVJX4MZh8nWnzZeG4xlXAUe2S9Yosg-b3q7yucB_-7PQ=rw-e365-w1024, https://lh3.googleusercontent.com/4QOjqBImLWiBXQdGlPZ-zkrLDizbwv924XzhA5TJpOn1-7vTDMNZL0JB5pHVJX4MZh8nWnzZeG4xlXAUe2S9Yosg-b3q7yucB_-7PQ=rw-e365-w2048 2x" media="(min-width: 600px)">
+<source type="image/webp" srcset="https://lh3.googleusercontent.com/4QOjqBImLWiBXQdGlPZ-zkrLDizbwv924XzhA5TJpOn1-7vTDMNZL0JB5pHVJX4MZh8nWnzZeG4xlXAUe2S9Yosg-b3q7yucB_-7PQ=rw-e365-w600, https://lh3.googleusercontent.com/4QOjqBImLWiBXQdGlPZ-zkrLDizbwv924XzhA5TJpOn1-7vTDMNZL0JB5pHVJX4MZh8nWnzZeG4xlXAUe2S9Yosg-b3q7yucB_-7PQ=rw-e365-w1200 2x" media="(min-width: 0px)">
+<img loading="lazy" src="https://lh3.googleusercontent.com/4QOjqBImLWiBXQdGlPZ-zkrLDizbwv924XzhA5TJpOn1-7vTDMNZL0JB5pHVJX4MZh8nWnzZeG4xlXAUe2S9Yosg-b3q7yucB_-7PQ=w2560" width="2560" height="842" class="laptop-desktop-only" alt="Clay cityscape">
+</picture>
+</div>
+<div class="fullbleed-5050__slides" slides="1" style="--max-height-desktop:690px;">
+<div class="fullbleed-5050__slide fullbleed-5050__slide--flush-bottom fullbleed-5050__slide--background-centered" slide>
+<div class="fullbleed-5050__slide__feature fullbleed-5050__slide__feature--flush-bottom fullbleed-5050__slide__feature--background-centered">
+<div class="fullbleed-5050__slide__feature__background-asset mobile-tablet-only">
+<picture>
+<source type="image/webp" media="(max-width: 599px)" srcset="https://lh3.googleusercontent.com/fJC-1uoFbE83CA1h1B62dXnL6laa5io1rhGtqix5HOGfBMd1PJ_3VP9mb1uRxiJYSop1NeXZJiYTbOGd3bDEnOPkJ-tJci1PO6BTMcQ=rw-e365-w600, https://lh3.googleusercontent.com/fJC-1uoFbE83CA1h1B62dXnL6laa5io1rhGtqix5HOGfBMd1PJ_3VP9mb1uRxiJYSop1NeXZJiYTbOGd3bDEnOPkJ-tJci1PO6BTMcQ=rw-e365-w1200 2x">
+<source media="(max-width: 599px)" srcset="https://lh3.googleusercontent.com/fJC-1uoFbE83CA1h1B62dXnL6laa5io1rhGtqix5HOGfBMd1PJ_3VP9mb1uRxiJYSop1NeXZJiYTbOGd3bDEnOPkJ-tJci1PO6BTMcQ=w600">
+<source type="image/webp" media="(max-width: 1023px)" srcset="https://lh3.googleusercontent.com/fJC-1uoFbE83CA1h1B62dXnL6laa5io1rhGtqix5HOGfBMd1PJ_3VP9mb1uRxiJYSop1NeXZJiYTbOGd3bDEnOPkJ-tJci1PO6BTMcQ=rw-e365-w1024, https://lh3.googleusercontent.com/fJC-1uoFbE83CA1h1B62dXnL6laa5io1rhGtqix5HOGfBMd1PJ_3VP9mb1uRxiJYSop1NeXZJiYTbOGd3bDEnOPkJ-tJci1PO6BTMcQ=rw-e365-w2048 2x">
+<source media="(max-width: 1023px)" srcset="https://lh3.googleusercontent.com/fJC-1uoFbE83CA1h1B62dXnL6laa5io1rhGtqix5HOGfBMd1PJ_3VP9mb1uRxiJYSop1NeXZJiYTbOGd3bDEnOPkJ-tJci1PO6BTMcQ=w1024">
+<source type="image/webp" media="(min-width: 0px)" srcset="https://lh3.googleusercontent.com/fJC-1uoFbE83CA1h1B62dXnL6laa5io1rhGtqix5HOGfBMd1PJ_3VP9mb1uRxiJYSop1NeXZJiYTbOGd3bDEnOPkJ-tJci1PO6BTMcQ=rw-e365-w1024, https://lh3.googleusercontent.com/fJC-1uoFbE83CA1h1B62dXnL6laa5io1rhGtqix5HOGfBMd1PJ_3VP9mb1uRxiJYSop1NeXZJiYTbOGd3bDEnOPkJ-tJci1PO6BTMcQ=rw-e365-w2048 2x">
+<img loading="lazy" src="https://lh3.googleusercontent.com/fJC-1uoFbE83CA1h1B62dXnL6laa5io1rhGtqix5HOGfBMd1PJ_3VP9mb1uRxiJYSop1NeXZJiYTbOGd3bDEnOPkJ-tJci1PO6BTMcQ=w1024" width="1024" style="height: 285px; object-fit: contain" class="mobile-tablet-only" alt="Clay cityscape">
+</picture>
+</div>
+<div class="fullbleed-5050__slide__feature__container">
+<div class="fullbleed-5050__slide__feature__chapter">
+<div class="fullbleed-5050__slide__feature__chapter__icon chapter__item">
+<img loading="lazy" src="https://fonts.gstatic.com/s/i/productlogos/maps/v7/192px.svg" width="66px" height="66px" style="margin: 0 -10px;" title="Google Maps Platform">
+</div>
+<div class="fullbleed-5050__slide__feature__chapter__title chapter__item" role="heading" aria-level="2">Get going with Google Maps&nbsp;Platform</div>
+<div class="fullbleed-5050__slide__feature__chapter__buttons chapter__item">
+<div class="fullbleed-5050__slide__feature__chapter__button">
+<a class="button" href="https://console.cloud.google.com/google/maps-apis/start?ref=https://mapsplatform.google.com" aria-label="Visit cloud console to get started" data-append-utm data-category="whyGoogle" data-action="mapsCta" data-label="getStartedCloser">
+Get started
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<gmp-footnotes class="footnotes" hidden>
+<div class="footnotes__container">
+<ul class="footnotes__footnotes">
+<li data-test-display="free*|free.*|free,*" hidden>
+<p>*Free usage refers to monthly calls available at no cost</p>
+</li>
+</ul>
+</div>
+</gmp-footnotes>
+<footer class="footer">
+<div class="footer__container">
+<div class="footer__social">
+<div class="footer__social__title">
+Follow us
+</div>
+<div class="footer__social__links">
+<div class="footer__social__links__link">
+<a class="link" href="https://www.linkedin.com/showcase/googlemapsplatform/" target="_blank" rel="noopener" data-category="footer" data-action="linkClick" data-label="followLinkedIn">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/footer/Footer_Social_LINKEDIN.svg" width="24" height="24" alt="LinkedIn">
+<span class="link__label"></span>
+</a>
+</div>
+<div class="footer__social__links__link">
+<a class="link" href="https://twitter.com/GMapsPlatform" target="_blank" rel="noopener" data-category="footer" data-action="linkClick" data-label="followTwitter">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/footer/Footer_Social_TWITTER.svg" width="24" height="24" alt="Twitter">
+<span class="link__label"></span>
+</a>
+</div>
+<div class="footer__social__links__link">
+<a class="link" href="https://www.youtube.com/googlemapsplatform" target="_blank" rel="noopener" data-category="footer" data-action="linkClick" data-label="followYouTube">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/footer/Footer_Social_YOUTUBE.svg" width="24" height="24" alt="YouTube">
+<span class="link__label"></span>
+</a>
+</div>
+<div class="footer__social__links__link">
+<a class="link" href="../../../../github.com/googlemaps/googlemaps.html" target="_blank" rel="noopener" data-category="footer" data-action="linkClick" data-label="followGitHub">
+<img loading="lazy" src="https://mapsplatform.google.com/static/images/icons/footer/Footer_Social_GITHUB.svg" width="24" height="24" alt="Github">
+<span class="link__label"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="footer__site-links" accordion>
+<div class="footer__site-links__title" accordion-toggle>
+Helpful links
+</div>
+<div class="footer__site-links__links" accordion-body>
+<div class="footer__site-links__links__link">
+<a class="link" href="https://developers.google.com/maps/documentation" target="_blank" rel="noopener" data-category="footer" data-action="linkClick" data-label="resourceDocumentation"><span class="link__label">Documentation</span>
+</a>
+</div>
+<div class="footer__site-links__links__link">
+<a class="link" href="https://developers.google.com/maps/faq" target="_blank" rel="noopener" data-category="footer" data-action="linkClick" data-label="resourceFAQs"><span class="link__label">FAQs</span>
+</a>
+</div>
+<div class="footer__site-links__links__link">
+<a class="link" href="https://mapsplatform.google.com/resources/quick-builder/" target="_blank" rel="noopener" data-category="footer" data-action="linkClick" data-label="resourceQuickBuilder"><span class="link__label">Quick builder</span>
+</a>
+</div>
+</div>
+</div>
+<div class="footer__google-links" role="navigation">
+<a class="link footer__logo" href="../../../../www.google.com/www_google_default_2.html" aria-label="Google">
+<img loading="lazy" src="https://gstatic.com/images/branding/googlelogo/svg/googlelogo_dark54_clr_84x28px.svg" width="84" height="28" title="Google">
+<span class="link__label"></span>
+</a>
+<ul class="footer__nav" aria-label="Footer links">
+<li role="listitem">
+<a class="link" href="../../../../about.google/about_default.html" target="_blank" rel="noopener" data-category="footer" data-action="linkClick" data-label="infoAboutGoogle"><span class="link__label">About Google</span>
+</a>
+</li>
+<li role="listitem">
+<a class="link" href="https://about.google/products/" target="_blank" rel="noopener" data-category="footer" data-action="linkClick" data-label="infoGoogleProducts"><span class="link__label">Google products</span>
+</a>
+</li>
+<li role="listitem">
+<a class="link" href="../../../../policies.google.com/privacy.htm" target="_blank" rel="noopener" data-category="footer" data-action="linkClick" data-label="infoPrivacy"><span class="link__label">Privacy</span>
+</a>
+</li>
+<li role="listitem">
+<a class="link" href="https://policies.google.com/terms" target="_blank" rel="noopener" data-category="footer" data-action="linkClick" data-label="infoTerms"><span class="link__label">Terms</span>
+</a>
+</li>
+<li role="listitem">
+<a class="link" href="https://cloud.google.com/product-terms/#section-6" target="_blank" rel="noopener" data-category="footer" data-action="linkClick" data-label="infoCloudTerms"><span class="link__label">Google Maps Platform Terms</span>
+</a>
+</li>
+</ul>
+<div class="footer__aside">
+<ul class="footer__nav footer__nav--aside" aria-label="Footer links">
+<li>
+<a class="link" href="https://support.google.com/maps/#topic=3092425" target="_blank" rel="noopener" data-category="footer" data-action="linkClick" data-label="infoHelp">
+<svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" fill="#5f6368">
+<path d="M0 0h24v24H0z" fill="none"></path>
+<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"></path>
+</svg>
+<span class="link__label">Help</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+<gmp-hats-survey listnr-id="5133444" trigger-id="h43Uw4y7T0ji3Z11gVm0PKTPLZdB" api-key="AIzaSyD3LJeW4Q6gtdgJlyeFZUp-GhpIoc6EUeg"></gmp-hats-survey>
+</div>
+</div>
+<link href="../../../../www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css" rel="stylesheet" nonce="ATeox2Lpf6lmMKBKXP6uRw">
+<script src="../../../../www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2A" data-glue-cookie-notification-bar-site-id="mapsplatform.google.com" nonce="ATeox2Lpf6lmMKBKXP6uRw"></script>
+</body>
+</html>
