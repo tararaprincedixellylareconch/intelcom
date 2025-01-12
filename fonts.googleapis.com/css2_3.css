@@ -1,0 +1,438 @@
+/*
+ * See: https://fonts.google.com/license/googlerestricted
+ */
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 100;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GmtSNljixIIGUsC62cYrLiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 100;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3G-tSNljixIIGUsC62cYrLiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 100;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3G2tSNljixIIGUsC62cYrLiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 100;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GKteNljixIIGUsC62cYrLiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 100;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GeteNljixIIGUsC62cYrLiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 100;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GmtSNljixIIGUsC62cYrLiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 100;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3G-tSNljixIIGUsC62cYrLiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 100;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3G2tSNljixIIGUsC62cYrLiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 100;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GKteNljixIIGUsC62cYrLiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 100;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GeteNljixIIGUsC62cYrLiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 200;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GmtSNljixIIGUsC62cQrKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 200;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3G-tSNljixIIGUsC62cQrKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 200;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3G2tSNljixIIGUsC62cQrKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 200;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GKteNljixIIGUsC62cQrKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 200;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GeteNljixIIGUsC62cQrKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 200;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GmtSNljixIIGUsC62cQrKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 200;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3G-tSNljixIIGUsC62cQrKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 200;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3G2tSNljixIIGUsC62cQrKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 200;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GKteNljixIIGUsC62cQrKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 200;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GeteNljixIIGUsC62cQrKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 300;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GmtSNljixIIGUsC62cdTKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 300;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3G-tSNljixIIGUsC62cdTKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 300;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3G2tSNljixIIGUsC62cdTKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 300;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GKteNljixIIGUsC62cdTKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 300;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GeteNljixIIGUsC62cdTKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 300;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GmtSNljixIIGUsC62cdTKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 300;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3G-tSNljixIIGUsC62cdTKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 300;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3G2tSNljixIIGUsC62cdTKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 300;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GKteNljixIIGUsC62cdTKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 300;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GeteNljixIIGUsC62cdTKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GmtSNljixIIGUsC62cYrKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3G-tSNljixIIGUsC62cYrKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3G2tSNljixIIGUsC62cYrKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GKteNljixIIGUsC62cYrKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GeteNljixIIGUsC62cYrKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GmtSNljixIIGUsC62cYrKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3G-tSNljixIIGUsC62cYrKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3G2tSNljixIIGUsC62cYrKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GKteNljixIIGUsC62cYrKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GeteNljixIIGUsC62cYrKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 500;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GmtSNljixIIGUsC62cbjKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 500;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3G-tSNljixIIGUsC62cbjKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 500;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3G2tSNljixIIGUsC62cbjKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 500;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GKteNljixIIGUsC62cbjKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 500;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GeteNljixIIGUsC62cbjKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 500;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GmtSNljixIIGUsC62cbjKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 500;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3G-tSNljixIIGUsC62cbjKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 500;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3G2tSNljixIIGUsC62cbjKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 500;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GKteNljixIIGUsC62cbjKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 500;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GeteNljixIIGUsC62cbjKiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 600;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GmtSNljixIIGUsC62cVTNiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 600;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3G-tSNljixIIGUsC62cVTNiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 600;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3G2tSNljixIIGUsC62cVTNiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 600;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GKteNljixIIGUsC62cVTNiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 600;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GeteNljixIIGUsC62cVTNiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 600;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GmtSNljixIIGUsC62cVTNiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 600;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3G-tSNljixIIGUsC62cVTNiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 600;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3G2tSNljixIIGUsC62cVTNiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 600;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GKteNljixIIGUsC62cVTNiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 600;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GeteNljixIIGUsC62cVTNiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GmtSNljixIIGUsC62cW3NiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3G-tSNljixIIGUsC62cW3NiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3G2tSNljixIIGUsC62cW3NiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GKteNljixIIGUsC62cW3NiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cPrjdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GeteNljixIIGUsC62cW3NiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GmtSNljixIIGUsC62cW3NiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3G-tSNljixIIGUsC62cW3NiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3G2tSNljixIIGUsC62cW3NiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GKteNljixIIGUsC62cW3NiAo.woff) format('woff');
+}
+@font-face {
+  font-family: 'Google Symbols';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/googlesymbols/v309/HhzMU5Ak9u-oMExPeInvcuEmPosC9zyteYEFU68cvofdKM1XLPTxlGmzczpgWvF1d8Yp7AudBnt3CPar1JFWjoLAUv3GeteNljixIIGUsC62cW3NiAo.woff) format('woff');
+}
+
+.google-symbols {
+  font-family: 'Google Symbols';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-feature-settings: 'liga';
+}
