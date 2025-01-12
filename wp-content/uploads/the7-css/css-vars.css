@@ -1,5 +1,5 @@
 :root {
-  --the7-accent-bg-color: #5163e4;
+  --the7-accent-bg-color: #FFC0CB; /* MODIFICACIÓN: cambio de #5163e4 a #FFC0CB */
   --the7-accent-color: #5163e4;
   --the7-additional-logo-elements-font-family: "Open Sans", Helvetica, Arial, Verdana, sans-serif;
   --the7-additional-logo-elements-font-size: 20px;
@@ -14,7 +14,7 @@
   --the7-base-font-family: "Source Sans Pro", Helvetica, Arial, Verdana, sans-serif;
   --the7-base-font-size: 16px;
   --the7-base-line-height: 24px;
-  --the7-beautiful-loading-bg: #5163e4;
+  --the7-beautiful-loading-bg: #af48f3;
   --the7-beautiful-spinner-color: #6c7ae2;
   --the7-body-bg-color: #f7f7f7;
   --the7-body-bg-image: none;
@@ -457,7 +457,7 @@
   --the7-mw-search-font-size: 15px;
   --the7-mw-search-icon-size: 16px;
   --the7-mw-search-left-padding: 30px;
-  --the7-mw-search-overlay-bg: rgba(81,99,228,0.95);
+  --the7-mw-search-overlay-bg: rgba(228, 81, 81, 0.95);
   --the7-mw-search-right-padding: 30px;
   --the7-mw-skype-icon-size: 16px;
   --the7-mw-woocommerce-cart-icon-size: 16px;
